@@ -8,16 +8,26 @@ permalink: /resume/
 
 ## Skill Sets
 
-Devops: Docker, Elasticbeanstalk, Major VM Providers (AWS, Rackspace, Heroku, etc.), Chef, Automated deployment stratagies (Jenkins, CircleCI, etc), Most Linux flavors (Ubuntu is my double rainbow favorate)
-Languages: Ruby, JavaScript (Coffescript, Node), Python
-BDD: Cucumber, Capybara, Rspec, Selenium (and other aspects such as Factory_Girl)  
-Databases: Oracle8i-9i, PostgreSQL, MySQL, MS SQL SERVER, CouchDB, MongoDB  
-Design:  Information Architecture/User Experience, CSS, HTML, Photoshop, Illustrator  
-Other: Git (use and administration), Subversion (use and administration), Agile Project Management
+**Devops**: Terraform, Docker, AWS, Other Major Cloud Providers (Rackspace, Azure, etc.), Chef, Ansible, Automated deployment stratagies (Jenkins, CircleCI, etc), Most Linux flavors (Ubuntu is my double rainbow favorate)
+**Languages**: Ruby, JavaScript (Coffescript, Node), Python, plus many others  
+**BDD**: Cucumber, Capybara, Rspec, Selenium (and other aspects such as Factory_Girl)  
+**Databases**: PostgreSQL, MySQL, MS SQL SERVER, Oracle8i-9i, CouchDB, MongoDB  
+**Design**:  Information Architecture/User Experience, CSS, HTML, Photoshop, Illustrator  
+**Other**: Git (use and administration), Subversion (use and administration), Agile Project Management
 
 ## Work Experience
 
-### Latest Position July 2014 - Present
+### Latest Position July 2015 - Present
+
+**Univision Communications, Inc.** (Media/Entertainment) New York City  
+*Senior Development Operations Engineer*
+
+I was part of the team that moved the many Univision digital properties from on-prem to AWS. I contunue to maintain the infratructure that touches all our properties wich include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their need for bootstraping and deployment.
+
+Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggragation/search), Docker, Java, Tomcat, Jboss, Node.js, MYSQL, Akamai.
+Supported: All lower Environmants (i.e. Integration, Development), Mobile (iOS and Android)
+
+### Full Time 2008 - 2015
 
 **IDT** (telecom) New York City  
 *Devop Engineer*
@@ -27,8 +37,6 @@ I head devops for a small team that tackles SAAS projects that have short deadli
 Used: Bash, Ruby, RVM, Supervisor, GIT (including github api, gitlabs api), Nginx, Jenkins, Siege, Logstash, Elasticsearch, and Kibana (ELK).
 Supported: Postgres, Redis, Ruby on Rails, and Nodejs.  
 OSes: Ubuntu LTS, Amazon Linux, and Mac OS X
-
-### Full Time 2008 - 2014
 
 **kirshenbaum bond senecal + partners** (ad agency) New York City  
 *Associate Director of Operations*
