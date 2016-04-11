@@ -24,8 +24,9 @@ permalink: /resume/
 
 I was part of the team that moved the many Univision digital properties from on-prem to AWS. I contunue to maintain the infratructure that touches all our properties wich include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their need for bootstraping and deployment.
 
-Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggragation/search), Docker, Java, Tomcat, Jboss, Node.js, MYSQL, Akamai.
-Supported: All lower Environmants (i.e. Integration, Development), Mobile (iOS and Android)
+Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggragation/search), Docker, Java, Tomcat, Jboss, Node.js, MYSQL, Akamai.  
+Supported: All lower Environmants (i.e. Integration, Development), Mobile (iOS and Android)  
+OSes: Mac OS X (my laptop goto and the Dev group's), Ubuntu, Redhat, CentOS
 
 ### Full Time 2008 - 2015
 
