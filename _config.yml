@@ -15,11 +15,12 @@ url: "http://www.savagevines.com" # the base hostname & protocol for your site
 twitter_username: iansheridan
 github_username:  iansheridan
 
+gems: [jekyll-paginate]
 permalink: /:year/:month/:day/:title/
 paginate: 10
 highlighter: pygments
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'solar-theme-jekyll-master']
 
 # Build settings
 markdown: kramdown
