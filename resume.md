@@ -22,10 +22,10 @@ permalink: /resume/
 **Univision Communications, Inc.** (Media/Entertainment) New York City  
 *Senior Development Operations Engineer*
 
-I was part of the team that moved the many Univision digital properties from on-prem to AWS. I contunue to maintain the infratructure that touches all our properties wich include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their need for bootstraping and deployment.
+I was part of the team that moved the many Univision digital properties from on-prem to AWS. I continue to maintain the infrastructure that touches all our properties which include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their need for bootstrapping and deployment.
 
-Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggragation/search), Docker, Java, Tomcat, Jboss, Node.js, MYSQL, Akamai.  
-Supported: All lower Environmants (i.e. Integration, Development), Mobile (iOS and Android)  
+Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggregation/search), Docker, Java, Tomcat, Jboss, Node.js, MYSQL, Akamai.  
+Supported: All lower Environments (i.e. Integration, Development), Mobile (iOS and Android)  
 OSes: Mac OS X (my laptop goto and the Dev group's), Ubuntu, Redhat, CentOS
 
 ### Full Time 2008 - 2015
@@ -33,7 +33,7 @@ OSes: Mac OS X (my laptop goto and the Dev group's), Ubuntu, Redhat, CentOS
 **IDT** (telecom) New York City  
 *Devop Engineer*
 
-I head devops for a small team that tackles SAAS projects that have short deadlines. I work with the team to deliver high availability scalable systems using Docker and AWS Elastic Beanstalk. We also work to improve proccess company wide. Helping to improve other inisitives thoughout IDT.
+I head devops for a small team that tackles SAAS projects that have short deadlines. I work with the team to deliver high availability scalable systems using Docker and AWS Elastic Beanstalk. We also work to improve process company wide. Helping to improve other initiatives throughout IDT.
 
 Used: Bash, Ruby, RVM, Supervisor, GIT (including github api, gitlabs api), Nginx, Jenkins, Siege, Logstash, Elasticsearch, and Kibana (ELK).
 Supported: Postgres, Redis, Ruby on Rails, and Nodejs.  
@@ -42,7 +42,7 @@ OSes: Ubuntu LTS, Amazon Linux, and Mac OS X
 **kirshenbaum bond senecal + partners** (ad agency) New York City  
 *Associate Director of Operations*
 
-Our offering grew to include Devops and I took over the roll to institute a new Devops group with offsite assets. In charge of NOC and hands on devops, which is responcible for over 100 servers. The focus is to support the applications comming out of the development group. The tech of these apps ranged fron .NET to Python. Python Django apps being the primary language and framework.
+Our offering grew to include Devops and I took over the roll to institute a new Devops group with offsite assets. In charge of NOC and hands on devops, which is responsible for over 100 servers. The focus is to support the applications coming out of the development group. The tech of these apps ranged from .NET to Python. Python Django apps being the primary language and framework.
 
 Used: Bash, Ruby, Python, Chef (solo and server), RVM, god, Fabric, Supervisor, GIT (including github api, gitlabs api), Nginx, Jenkins, Zenoss, Siege, and Logstash.  
 Supported: Postgres, Redis, Django, Ruby on Rails, Yii, and Sitecore.  
