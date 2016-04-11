@@ -22,7 +22,7 @@ permalink: /resume/
 **Univision Communications, Inc.** (Media/Entertainment) New York City  
 *Senior Development Operations Engineer*
 
-I was part of the team that moved the many Univision digital properties from on-prem to AWS. I continue to maintain the infrastructure that touches all our properties which include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their need for bootstrapping and deployment.
+I am part of the team that moved the many Univision digital properties from on-prem to AWS. I continue to maintain the infrastructure that touches all our properties which include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their need for bootstrapping and deployment.
 
 Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggregation/search), Docker, Java, Tomcat, Jboss, Node.js, MYSQL, Akamai.  
 Supported: All lower Environments (i.e. Integration, Development), Mobile (iOS and Android)  
