@@ -8,7 +8,7 @@ permalink: /resume/
 
 ## Skill Sets
 
-**Devops**: Terraform, Docker, AWS, Other Major Cloud Providers (Rackspace, Azure, etc.), Chef, Ansible, Automated deployment stratagies (Jenkins, CircleCI, etc), Most Linux flavors (Ubuntu is my double rainbow favorate)
+**Devops**: Terraform, Docker, AWS, Other Major Cloud Providers (Rackspace, Azure, etc.), Chef, Ansible, Automated deployment stratagies (Jenkins, CircleCI, etc), Most Linux flavors (Ubuntu is my double rainbow favorate)  
 **Languages**: Ruby, JavaScript (Coffescript, Node), Python, plus many others  
 **BDD**: Cucumber, Capybara, Rspec, Selenium (and other aspects such as Factory_Girl)  
 **Databases**: PostgreSQL, MySQL, MS SQL SERVER, Oracle8i-9i, CouchDB, MongoDB  
