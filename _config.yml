@@ -15,7 +15,5 @@ url: "http://www.savagevines.com" # the base hostname & protocol for your site
 twitter_username: iansheridan
 github_username:  iansheridan
 
-font-awesome-include: true
-
 # Build settings
 markdown: kramdown
