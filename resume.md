@@ -4,7 +4,8 @@ title: Resume
 permalink: /resume/
 ---
 
-# Ian Sheridan - <a href="mailto:ian.sheridan@gmail.com">ian.sheridan@gmail.com</a> - 718.568.9185
+# Ian Sheridan - [ian.sheridan@gmail.com](mailto:ian.sheridan@gmail.com) - 718.568.9185
+[pdf](http://www.savagevines.com/ian-sheridan_resume_20160413.pdf)
 
 ## Skill Sets
 
