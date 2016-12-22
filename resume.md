@@ -18,6 +18,8 @@ permalink: /resume/
 
 ## Work Experience
 
+---
+
 ### Latest Position July 2015 - Present
 
 **Univision Communications, Inc.** (Media/Entertainment) New York City  
@@ -29,7 +31,9 @@ Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggregat
 Supported: All lower Environments (i.e. Integration, Development), Mobile (iOS and Android)  
 OSes: Mac OS X (my laptop goto and the Dev group's), Ubuntu, Redhat, CentOS
 
-### Full Time 2008 - 2015
+### Full Time Positions 2008 - 2015
+
+---
 
 **IDT** (telecom) New York City  
 *Devop Engineer*
@@ -78,7 +82,9 @@ Used advanced JavaScript with jQuery framework to create interfaces and help man
 Used Ruby On Rails, Merb, Sinatra, and PHP to code Race and other applications.  
 Tools used: Coda, TextMate, Subversion (use and administration), Capistrano (deployment) and multiple operating systems from Linux (to host apps) to Mac OS X (to host apps) to Windows (testing apps)
 
-### Freelance Consulting 2006-2008
+### Freelance Consulting Positions 2006-2008
+
+---
 
 **Tacit Knowledge** (system engineering consulting group) New York City  
 Web Developer
@@ -100,11 +106,15 @@ Used AJAX jQuery library to help with the cross browser issues and to add dynami
 Used CSS and HTML to create the approved design.  
 Tools used: Eclipse, SVN (for version control), PC and Mac computers for cross browser issues.
 
-### Full Time 1996-2006
+### Full Time Positions 1996-2006
+
+---
 
 Provided on request.
 
 ## Education
+
+---
 
 **Queens College** - Fine Arts major
 
