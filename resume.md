@@ -5,12 +5,14 @@ permalink: /resume/
 ---
 
 # Ian Sheridan - [ian.sheridan@gmail.com](mailto:ian.sheridan@gmail.com) - 718.568.9185
-[pdf](http://www.savagevines.com/ian-sheridan_resume_20160413.pdf)
+[pdf](http://www.savagevines.com/20170529_ian-sheridan_resume.pdf)
+
+I am a Devop first and formost. As a devop I have worked with Kubernetes, Terraform (along with Hashie Corps' CD offering), Chef, Puppet, and all the current top Cloud Computing providers. I have run remote devop teams as an Assoc. Director of Operations that included a QA group in India. I have also successfully migrated on-prem systems to Cloud Computing, specifically AWS. I am part of the team that converted all the Gizmodo Media Group's (formerly known as Gawker Media) legacy system to a production Kubernetes system.
 
 ## Skill Sets
 
-**Devops**: Terraform, Docker, AWS, Other Major Cloud Providers (Rackspace, Azure, etc.), Chef, Ansible, Automated deployment stratagies (Jenkins, CircleCI, etc), Most Linux flavors (Ubuntu is my double rainbow favorate)  
-**Languages**: Ruby, JavaScript (Coffescript, Node), Python, plus many others  
+**Devops**: Kubernetes, Terraform, Docker, AWS, Other Major Cloud Providers (Rackspace, Azure, etc.), Chef, Ansible, Automated deployment/integration stratagies (Jenkins, CircleCI, etc), Most Linux flavors (Ubuntu is my double rainbow favorate)  
+**Languages**: Ruby, Python, Bash, JavaScript (Coffescript, Node), plus many others  
 **BDD**: Cucumber, Capybara, Rspec, Selenium (and other aspects such as Factory_Girl)  
 **Databases**: PostgreSQL, MySQL, MS SQL SERVER, Oracle8i-9i, CouchDB, MongoDB  
 **Design**:  Information Architecture/User Experience, CSS, HTML, Photoshop, Illustrator  
@@ -25,20 +27,20 @@ permalink: /resume/
 **Univision Communications, Inc.** (Media/Entertainment) New York City  
 *Senior Development Operations Engineer*
 
-I am part of the team that moved the many Univision digital properties from on-prem to AWS. I continue to maintain the infrastructure that touches all our properties which include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their need for bootstrapping and deployment.
+I am part of the team that converted all the Gizmodo Media Group's (formerly known as Gawker Media) legacy system to a production Kubernetes system, [lifehacker.com](http://lifehacker.com), [io9.com](http://io9.com), etc. We have also moved many of Univision digital properties from on-prem to AWS. I continue to maintain the infrastructure that touches all our properties which include, [univision.com](http://univision.com), [theroot.com](http://theroot.com), [theonion.com](http://theonion.com), and many more micro/marketing sites. I addition to that I also manage the relationship with the Developers and assist them in their needs for bootstrapping and deployment.
 
 Used: Bash, Ruby, Chef, Terraform, Jenkins, AWS Api, Elasticsearch (Log aggregation/search), Docker, Java, Tomcat, Jboss, Node.js, MYSQL, Akamai.  
 Supported: All lower Environments (i.e. Integration, Development), Mobile (iOS and Android)  
 OSes: Mac OS X (my laptop goto and the Dev group's), Ubuntu, Redhat, CentOS
 
-### Full Time Positions 2008 - 2015
+### List of Full Time Positions 2008 - 2015
 
 ---
 
 **IDT** (telecom) New York City  
 *Devop Engineer*
 
-I head devops for a small team that tackles SAAS projects that have short deadlines. I work with the team to deliver high availability scalable systems using Docker and AWS Elastic Beanstalk. We also work to improve process company wide. Helping to improve other initiatives throughout IDT.
+I headed devops for a small team that tackles SAAS projects that have short deadlines. I work with the team to deliver high availability scalable systems using Docker and AWS Elastic Beanstalk. We also work to improve process company wide. Helping to improve other initiatives throughout IDT.
 
 Used: Bash, Ruby, RVM, Supervisor, GIT (including github api, gitlabs api), Nginx, Jenkins, Siege, Logstash, Elasticsearch, and Kibana (ELK).
 Supported: Postgres, Redis, Ruby on Rails, and Nodejs.  
