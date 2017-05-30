@@ -49,7 +49,7 @@ OSes: Ubuntu LTS, Amazon Linux, and Mac OS X
 **kirshenbaum bond senecal + partners** (ad agency) New York City  
 *Associate Director of Operations*
 
-Our offering grew to include Devops and I took over the roll to institute a new Devops group with offsite assets. In charge of NOC and hands on devops, which is responsible for over 100 servers. The focus is to support the applications coming out of the development group. The tech of these apps ranged from .NET to Python. Python Django apps being the primary language and framework.
+Our offering grew to include Devops and I took over the roll to institute a new Devops group with offsite assets. In charge of NOC and hand on devops, which is responsible for over 100 servers. The focus is to support the applications coming out of the development group. The tech of these apps ranged from .NET to Python. Python Django apps being the primary language and framework.
 
 Used: Bash, Ruby, Python, Chef (solo and server), RVM, god, Fabric, Supervisor, GIT (including github api, gitlabs api), Nginx, Jenkins, Zenoss, Siege, and Logstash.  
 Supported: Postgres, Redis, Django, Ruby on Rails, Yii, and Sitecore.  
