@@ -7,7 +7,7 @@ permalink: /resume/
 # Ian Sheridan - [ian.sheridan@gmail.com](mailto:ian.sheridan@gmail.com) - 718.568.9185
 [pdf](http://www.savagevines.com/20170529_ian-sheridan_resume.pdf)
 
-I am a Devop first and foremost. As a devop I have worked with Kubernetes, Terraform (along with HashieCorp's CD offering), Chef, Puppet, and all the current top Cloud Computing providers. I have run remote devop teams as an Assoc. Director of Operations that included a QA group in India. I have also successfully migrated on-prem systems to Cloud Computing, specifically AWS. I am part of the team that converted all the Gizmodo Media Group's (formerly known as Gawker Media) legacy system to a production Kubernetes system.
+I am a Devop first and foremost. As a devop I have worked with Kubernetes, Terraform (along with HashiCorp's CD offering), Chef, Puppet, and all the current top Cloud Computing providers. I have run remote devop teams as an Assoc. Director of Operations that included a QA group in India. I have also successfully migrated on-prem systems to Cloud Computing, specifically AWS. I am part of the team that converted all the Gizmodo Media Group's (formerly known as Gawker Media) legacy system to a production Kubernetes system.
 
 ## Skill Sets
 
