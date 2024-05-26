@@ -11,4 +11,7 @@ What I have always wanted to be.
 
 Here are some of the pieces i have made.
 
-![Blue Clawing Thing, One](/images/Blue_Clawing_THings_01.jpg)
+![Blue Clawing Thing, One](/images/Blue_Clawing_Things_01.jpg)
+![Blue Clawing Thing, Two](/images/Blue_Clawing_Things_02.jpg)
+![Blue Clawing Thing, Three](/images/Blue_Clawing_Things_03.jpg)
+
