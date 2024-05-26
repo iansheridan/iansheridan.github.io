@@ -11,7 +11,12 @@ What I have always wanted to be.
 
 Here are some of the pieces i have made.
 
-![Blue Clawing Thing, One](/images/Blue_Clawing_Things_01.jpg)
-![Blue Clawing Thing, Two](/images/Blue_Clawing_Things_02.jpg)
-![Blue Clawing Thing, Three](/images/Blue_Clawing_Things_03.jpg)
+Blue Clawing Thing, One
+<img src="/images/Blue_Clawing_Things_01.jpg" width="25%" height="25%" />
+
+Blue Clawing Thing, Two
+<img src="/images/Blue_Clawing_Things_02.jpg" width="25%" height="25%" />
+
+Blue Clawing Thing, Three
+<img src="/images/Blue_Clawing_Things_03.jpg" width="25%" height="25%" />
 
