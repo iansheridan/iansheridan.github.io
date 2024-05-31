@@ -12,18 +12,37 @@ email: ian.sheridan@gmail.com
 description: "The art of Ian Sheridan"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://iansheridan.art" # the base hostname & protocol for your site
-twitter_username: iansheridan
-github_username:  iansheridan
+cover: /img/og.png
+logo: /img/emojis/technologist.png
+resume: /20170529_ian-sheridan_resume.pdf
+social:
+  - title: email
+    url: mailto:ian.sheridan@gmail.com
+  - title: twitter
+    url: https://twitter.com/iansheridan
+  - title: instagram
+    url: https://instagram.com/iansheridan
+  - title: github
+    url: https://github.com/iansheridan
 
-gems: [jekyll-paginate]
-permalink: /:year/:month/:day/:title/
-paginate: 1
-highlighter: pygments
+markdown: kramdown
+
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - '*.gemspec'
+  - 'README.md'
+  - 'node_modules'
+  - 'build'
+  - 'gulpfile.js'
+  - 'package.json'
+
+keep_files:
+  - 'CNAME'
+  - '.git'
+  - '.gitignore'
 
 plugins:
   - github-pages
-  - jekyll-feed
-
-# Build settings
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'solar-theme-jekyll-master']
-markdown: kramdown
+  - jekyll-minifier
+  - jekyll-sitemap
