@@ -20,12 +20,9 @@ permalink: /:year/:month/:day/:title/
 paginate: 1
 highlighter: pygments
 
-
-remote_theme: pages-themes/midnight@v0.2.0
 plugins:
   - github-pages
   - jekyll-feed
-  - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 # Build settings
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'solar-theme-jekyll-master']
