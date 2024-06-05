@@ -15,17 +15,15 @@ url: "https://iansheridan.art" # the base hostname & protocol for your site
 cover: /img/og.png
 logo: /img/emojis/technologist.png
 resume: /20170529_ian-sheridan_resume.pdf
-social:
-  - title: email
-    url: mailto:ian.sheridan@gmail.com
-  - title: twitter
-    url: https://twitter.com/iansheridan
-  - title: instagram
-    url: https://instagram.com/iansheridan
-  - title: github
-    url: https://github.com/iansheridan
+twitter_url: https://twitter.com/iansheridan
+instagram_url: https://instagram.com/iansheridan
+github_url: https://github.com/iansheridan
 
 markdown: kramdown
+
+collections:
+  gallery:
+    output: true
 
 exclude:
   - 'Gemfile'
@@ -44,5 +42,5 @@ keep_files:
 
 plugins:
   - github-pages
-  - jekyll-minifier
   - jekyll-sitemap
+

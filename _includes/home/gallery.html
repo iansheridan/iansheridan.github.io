@@ -1,0 +1,9 @@
+{% for piece in site.gallery %}
+<section class="section gallery">
+  <div class="section__title">{{ piece.title }}</div>
+  <div class="section__content">
+  <span>{% for image in piece.images %}<a href="{{ piece.url }}" ><img src="{{ image['url'] }}" width="20%" ></a>{% endfor %}</span>
+    </div>
+    </div>
+</section>
+{% endfor %}
