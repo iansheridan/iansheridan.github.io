@@ -1,0 +1,16 @@
+<div class="section experience">
+  <h2 class="title">Experience</h2>
+  <div class="jobs">
+    {% for job in site.data.experience %}
+    <div class="job">
+      <div class="time-place">
+        <div class="company">
+          <a href="{{job.url}}" target="_blank">{{job.company}}</a>
+        </div>
+        <div class="time">{{job.time}}</div>
+      </div>
+      <div class="position">{{job.position}}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

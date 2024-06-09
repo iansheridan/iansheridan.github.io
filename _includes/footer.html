@@ -1,14 +1,22 @@
-<footer class="footer">Ian Sheridan</span>
+<div class="section footer">
+  <div class="copyright">
+    <div class="top">
+      <span>Designed &amp; Developed by</span>
+    </div>
+    <div class="bottom"
+      <span>Ian Sheridan</span>
       <img class="emoji" src="{{site.baseurl}}/img/emojis/rockon.png" alt="emoji">
-      <span>(c) 2024</span>
+      <span>2024</span>
     </div>
   </div>
-  <div class="footer__links">
-    {% for link in site.social %}
-    <a href="{{link.url}}" target="_blank" title="{{link.title}}">
-      <span class="text">{{link.title}}</span>
+  <div class="links">
+    {% for title in ["twitter", "github"] %}
+    {% for title_URL in [ @title + '_url' ] %}
+    <a href="{{ title_url}}" target="_blank" title="{{title}}">
+      <span class="text">{{title}}</span>
       <img src="{{site.baseurl}}/img/social/{{link.title}}.svg" alt="{{link.title}}">
     </a>
     {% endfor %}
+    {% endfor %}
   </div>
-</footer>
+</div>

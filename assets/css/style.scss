@@ -1,0 +1,52 @@
+---
+---
+
+@import "fonts.scss";
+
+// by ian sheridan
+
+html body {
+  background-color: rgba(16,1,16,1) !important ;
+  color: rgba(225,225,225,1) !important ;
+  font-family: 'Roboto Mono';
+}
+body {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+a {
+  color: #348feb;
+  text-decoration: none;
+  border-bottom: 2px solid;
+}
+.section__title {
+  font-size: 2em;
+  border-bottom: 0px;
+}
+.intro .hello {
+  font-size: 3em;
+}
+.intro .tagline {
+  font-size: 2em;
+}
+.intro {
+  margin-bottom: 3em;
+}
+
+.section {
+  margin: 2em;
+}
+
+.footer .copyright .emoji {
+  width: 20px;
+  height: 20px;
+}
+
+.resume-link {
+  margin: 2em;
+}
+
+.section h1.title {
+  border-top: 2px dotted #348feb;
+}

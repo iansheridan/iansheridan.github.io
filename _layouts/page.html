@@ -1,14 +1,14 @@
 ---
 layout: default
 ---
-<article class="page">
+<div class="article page">
 
-  <div class="post-content">{{ content }}</div>
+  <div class="page content">{{ content }}</div>
 
   {% if page.external-url %}
-    <p>original <a class="anchor" href="{{ page.url }}"><i class="icon-anchor"></i></a></p>
+    <span id="icon"><a class="anchor" href="{{ page.url }}"></a></span>
   {% endif %}
 
-  <p class="meta">Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></p>
+  <span class="meta postdate">Posted on >{{ page.date | date: "%b %d, %Y" }}</span>
 
-</article>
+</div>
