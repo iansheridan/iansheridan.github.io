@@ -1,5 +1,5 @@
-<footer class="footer">
-  <div class="footer__copyright">
+<div class="section footer">
+  <div class="copyright">
     <div class="top">
       <span>Designed &amp; Developed by</span>
     </div>
@@ -9,7 +9,7 @@
       <span>2024</span>
     </div>
   </div>
-  <div class="footer__links">
+  <div class="links">
     {% for title in ["twitter", "github"] %}
     {% for title_URL in [ @title + '_url' ] %}
     <a href="{{ title_url}}" target="_blank" title="{{title}}">
@@ -19,4 +19,4 @@
     {% endfor %}
     {% endfor %}
   </div>
-</footer>
+</div>

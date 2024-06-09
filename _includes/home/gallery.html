@@ -1,9 +1,11 @@
-{% for piece in site.gallery %}
-<section class="section gallery">
-  <div class="section__title">{{ piece.title }}</div>
-  <div class="section__content">
-  <span>{% for image in piece.images %}<a href="{{ piece.url }}" ><img src="{{ image['url'] }}" width="20%" ></a>{% endfor %}</span>
+<div class="section gallery">
+  <h1 class="title">Gallery</h1>
+  {% for piece in site.gallery %}
+  <div class="piece">
+    <h2 class="name">{{ piece.title }}</h2>
+    <div class="content">
+      <span>{% for image in piece.images %}<a href="{{ piece.url }}" ><img src="{{ image['url'] }}" width="20%" ></a>{% endfor %}</span>
     </div>
-    </div>
-</section>
-{% endfor %}
+  </div>
+  {% endfor %}
+</div>

@@ -25,6 +25,9 @@ collections:
   gallery:
     output: true
 
+sass:
+  sass_dir: _scss
+
 exclude:
   - 'Gemfile'
   - 'Gemfile.lock'
@@ -32,8 +35,9 @@ exclude:
   - 'README.md'
   - 'node_modules'
   - 'build'
-  - 'gulpfile.js'
-  - 'package.json'
+  - 'packag*.json'
+  - 'yarn.lock'
+  - '*.config.js'
 
 keep_files:
   - 'CNAME'
@@ -42,5 +46,7 @@ keep_files:
 
 plugins:
   - github-pages
-  - jekyll-sitemap
+  - jekyll-postcss
 
+postcss:
+  cache: false
