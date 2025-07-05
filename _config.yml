@@ -38,6 +38,8 @@ exclude:
   - 'packag*.json'
   - 'yarn.lock'
   - '*.config.js'
+  - 'raw_images'
+
 
 keep_files:
   - 'CNAME'
