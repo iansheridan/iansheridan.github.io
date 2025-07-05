@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Presentation</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #ccc;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+    }
+    h2 {
+      border-bottom: 1px solid #444;
+      color: #eee;
+      margin-top: 3rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery img {
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 1020px;
+      max-height: 90vh;
+      border-radius: 8px;
+    }
+    .modal.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Portfolio</h1>
+
+  
+    <h2 id="aqua-dirt">Aqua dirt</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/Aqua Dirt/Right bracket.jpg" alt="Right bracket.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Ball_Ov_.jpg" alt="Ball_Ov_.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Mouth_Open.jpg" alt="Mouth_Open.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Aqua_Diff.png" alt="Aqua_Diff.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Rushing.jpg" alt="Rushing.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Rat_Tah_Tat-Tat-Tat_.jpg" alt="Rat_Tah_Tat-Tat-Tat_.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/They're_Grinding.jpg" alt="They're_Grinding.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="fun-with-color">Fun with color</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/Fun with color/Facing_the_way.jpg" alt="Facing_the_way.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Face_Fun.jpg" alt="Face_Fun.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/tilting_gracefully.jpg" alt="tilting_gracefully.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Running_To_the_Wind.jpg" alt="Running_To_the_Wind.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Divisional_Clarity.jpg" alt="Divisional_Clarity.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Blue_Sky_Lava.jpg" alt="Blue_Sky_Lava.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/meandering_Mind.jpg" alt="meandering_Mind.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="my-hands">My hands</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/My hands/The_Closed_Hand.jpg" alt="The_Closed_Hand.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Lava_Hand_.png" alt="Lava_Hand_.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Burning_Lifeline.jpg" alt="Burning_Lifeline.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Can_you_see_It.jpg" alt="Can_you_see_It.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hand held .jpg" alt="Hand held .jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Golden_Hands.jpg" alt="Golden_Hands.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/My_seen_hand.jpg" alt="My_seen_hand.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/At_The_Center_Of_Things.jpg" alt="At_The_Center_Of_Things.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Atmosphere-Org.jpg" alt="Atmosphere-Org.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Feet!.png" alt="Feet!.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Red_Crush.jpg" alt="Red_Crush.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Reaching.jpg" alt="Reaching.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Reached_.jpg" alt="Reached_.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/How_Should_I_Know.jpg" alt="How_Should_I_Know.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hands_Together_small.jpg" alt="Hands_Together_small.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hands_Together_small.png" alt="Hands_Together_small.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hands_Together.jpg" alt="Hands_Together.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Atmosphere.gif" alt="Atmosphere.gif" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Open.jpg" alt="Open.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Tri-circle.jpg" alt="Tri-circle.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="rpg">Rpg</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/RPG/tower, Tower of Larasuil.png" alt="tower, Tower of Larasuil.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, lykin and stone, enlarged.png" alt="tower, lykin and stone, enlarged.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/The_Golden_Tower_of_Dagda.png" alt="The_Golden_Tower_of_Dagda.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, Tower of Blood.png" alt="tower, Tower of Blood.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower of the most high.png" alt="tower of the most high.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, Forlorcan.png" alt="tower, Forlorcan.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/a_tower_that_was_built_to_rival_the_grand_Towers_of_the_world. 2.png" alt="a_tower_that_was_built_to_rival_the_grand_Towers_of_the_world. 2.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/Tower, tower of moonlight.png" alt="Tower, tower of moonlight.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, Tower of Belegtil.png" alt="tower, Tower of Belegtil.png" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="brushes">Brushes</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/brushes/Brushes.jpg" alt="Brushes.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/brushes/Rack, long.jpg" alt="Rack, long.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/brushes/Rack.jpg" alt="Rack.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="colored-stones">Colored stones</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/colored stones/IMG_0438.JPG" alt="IMG_0438.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Vahse.jpg" alt="Vahse.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0429.JPG" alt="IMG_0429.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/LUMP_Bug.jpg" alt="LUMP_Bug.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0438 copy.JPG" alt="IMG_0438 copy.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Colored bubble.jpg" alt="Colored bubble.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/seen.JPG" alt="seen.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Rock_On.jpg" alt="Rock_On.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Lava_Nose.jpg" alt="Lava_Nose.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Green_Stones.jpg" alt="Green_Stones.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/I_See_Gold.jpg" alt="I_See_Gold.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Blue_Shell.jpg" alt="Blue_Shell.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Stick_and_Tube.jpg" alt="Stick_and_Tube.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Silver_Bulb.jpg" alt="Silver_Bulb.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0431.JPG" alt="IMG_0431.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0430.JPG" alt="IMG_0430.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/bending_Clay.jpg" alt="bending_Clay.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0433.JPG" alt="IMG_0433.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/silver bulb.JPG" alt="silver bulb.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0436.JPG" alt="IMG_0436.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0434.JPG" alt="IMG_0434.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0435.JPG" alt="IMG_0435.JPG" onclick="showModal(this.src)">
+      
+    </div>
+  
+
+  <div class="modal" onclick="hideModal()" id="modal">
+    <img src="" alt="preview" id="modal-img">
+  </div>
+
+  <script>
+    function showModal(src) {
+      document.getElementById("modal-img").src = src;
+      document.getElementById("modal").classList.add("active");
+    }
+    function hideModal() {
+      document.getElementById("modal").classList.remove("active");
+    }
+  </script>
+</body>
+</html>
