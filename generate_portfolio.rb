@@ -47,32 +47,11 @@ end
 
 # HTML Template
 template = <<-HTML
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Portfolio Presentation</title>
   <style>
-    body {
-      background-color: #1e1e1e;
-      color: #ccc;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      text-align: center;
-      color: #fff;
-    }
-    h2 {
-      border-bottom: 1px solid #444;
-      color: #eee;
-      margin-top: 3rem;
-    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+      gap: 1.5remgenerate_portfolio;
     }
     .gallery img {
       width: 100%;
@@ -102,8 +81,6 @@ template = <<-HTML
       display: flex;
     }
   </style>
-</head>
-<body>
   <h1>My Portfolio</h1>
 
   <% categories.each do |category, images| %>
@@ -128,8 +105,6 @@ template = <<-HTML
       document.getElementById("modal").classList.remove("active");
     }
   </script>
-</body>
-</html>
 HTML
 
 # Render HTML

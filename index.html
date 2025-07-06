@@ -1,11 +1,354 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ian Sheridan's Art</title>
+<link rel="icon" type="image/png" href="/img/emojis/technologist.png" hreflang="en-us">
+<meta property="og:title" content="Ian Sheridan's Art" />
+<meta property="og:description" content="The art of Ian Sheridan" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://iansheridan.art" />
+<meta property="og:site_name" content="Ian Sheridan" />
+<meta property="og:image" content="/img/og.png" />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="800" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:locale" content="en_US">
+<meta name="description" content="The art of Ian Sheridan">
+<meta name="keywords" content="design, development, web, iansheridan, Ian Sheridan, javascript, northeastern">
+<meta itemprop="name" content="Ian Sheridan's Art">
+<meta itemprop="description" content="The art of Ian Sheridan">
+<meta itemprop="image" content="/img/og.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://iansheridan.art">
+<meta name="twitter:site" content="@iansheridan">
+<meta name="twitter:creator" content="@iansheridan">
+<meta name="twitter:title" content="Ian Sheridan's Art">
+<meta name="twitter:description" content="The art of Ian Sheridan">
+<meta name="twitter:image:src" content="/img/og.png">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css" hreflang="en-us">
+</head>
+<body id="iansheridan_art">
+  <div id="site">
+  <div class="intro">
+  <h1 class="hello">
+    Hello!
+    <span class="emoji wave-hand animated"></span>
+  </h1>
 
-<div id="site">
-  {% include home/intro.html %}
-  {% include home/other-projects.html %}
-  {% include home/experience.html %}
-  <p class="resume-link"><a href="/20170529_ian-sheridan_resume.pdf">my resume</a></p>
-  {% include footer.html %}
+  <div class="tagline">
+    I'm <span class="name">Ian Sheridan</span> and I have Parkinson's Disease
+    (PD). ppp is the most significant influence on my art. Creating artwork
+    makes gives me a deep sense of satisfaction. I'm inspired by the works of
+    Ilan Katin, a Berlin-based artist, Vincent Van Gogh, Jackson Pollock, Keith
+    Haring, Bob Ross, and Pete Draws.
+    <span class="emoji technologist"></span>
+  </div>
+
+  <div class="portfolio">
+    here is my portfolio
+      <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery img {
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 1020px;
+      max-height: 90vh;
+      border-radius: 8px;
+    }
+    .modal.active {
+      display: flex;
+    }
+  </style>
+  
+    <h2 id="aqua-dirt">Aqua dirt</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/Aqua Dirt/Right bracket.jpg" alt="Right bracket.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Ball_Ov_.jpg" alt="Ball_Ov_.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Mouth_Open.jpg" alt="Mouth_Open.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Aqua_Diff.png" alt="Aqua_Diff.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Rushing.jpg" alt="Rushing.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/Rat_Tah_Tat-Tat-Tat_.jpg" alt="Rat_Tah_Tat-Tat-Tat_.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Aqua Dirt/They're_Grinding.jpg" alt="They're_Grinding.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="fun-with-color">Fun with color</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/Fun with color/Facing_the_way.jpg" alt="Facing_the_way.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Face_Fun.jpg" alt="Face_Fun.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/tilting_gracefully.jpg" alt="tilting_gracefully.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Running_To_the_Wind.jpg" alt="Running_To_the_Wind.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Divisional_Clarity.jpg" alt="Divisional_Clarity.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/Blue_Sky_Lava.jpg" alt="Blue_Sky_Lava.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/Fun with color/meandering_Mind.jpg" alt="meandering_Mind.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="my-hands">My hands</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/My hands/The_Closed_Hand.jpg" alt="The_Closed_Hand.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Lava_Hand_.png" alt="Lava_Hand_.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Burning_Lifeline.jpg" alt="Burning_Lifeline.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Can_you_see_It.jpg" alt="Can_you_see_It.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hand held .jpg" alt="Hand held .jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Golden_Hands.jpg" alt="Golden_Hands.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/My_seen_hand.jpg" alt="My_seen_hand.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/At_The_Center_Of_Things.jpg" alt="At_The_Center_Of_Things.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Atmosphere-Org.jpg" alt="Atmosphere-Org.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Feet!.png" alt="Feet!.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Red_Crush.jpg" alt="Red_Crush.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Reaching.jpg" alt="Reaching.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Reached_.jpg" alt="Reached_.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/How_Should_I_Know.jpg" alt="How_Should_I_Know.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hands_Together_small.jpg" alt="Hands_Together_small.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hands_Together_small.png" alt="Hands_Together_small.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Hands_Together.jpg" alt="Hands_Together.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Atmosphere.gif" alt="Atmosphere.gif" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Open.jpg" alt="Open.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/My hands/Tri-circle.jpg" alt="Tri-circle.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="rpg">Rpg</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/RPG/tower, Tower of Larasuil.png" alt="tower, Tower of Larasuil.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, lykin and stone, enlarged.png" alt="tower, lykin and stone, enlarged.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/The_Golden_Tower_of_Dagda.png" alt="The_Golden_Tower_of_Dagda.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, Tower of Blood.png" alt="tower, Tower of Blood.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower of the most high.png" alt="tower of the most high.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, Forlorcan.png" alt="tower, Forlorcan.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/a_tower_that_was_built_to_rival_the_grand_Towers_of_the_world. 2.png" alt="a_tower_that_was_built_to_rival_the_grand_Towers_of_the_world. 2.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/Tower, tower of moonlight.png" alt="Tower, tower of moonlight.png" onclick="showModal(this.src)">
+      
+        <img src="images/processed/RPG/tower, Tower of Belegtil.png" alt="tower, Tower of Belegtil.png" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="brushes">Brushes</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/brushes/Brushes.jpg" alt="Brushes.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/brushes/Rack, long.jpg" alt="Rack, long.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/brushes/Rack.jpg" alt="Rack.jpg" onclick="showModal(this.src)">
+      
+    </div>
+  
+    <h2 id="colored-stones">Colored stones</h2>
+    <div class="gallery">
+      
+        <img src="images/processed/colored stones/IMG_0438.JPG" alt="IMG_0438.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Vahse.jpg" alt="Vahse.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0429.JPG" alt="IMG_0429.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/LUMP_Bug.jpg" alt="LUMP_Bug.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0438 copy.JPG" alt="IMG_0438 copy.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Colored bubble.jpg" alt="Colored bubble.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/seen.JPG" alt="seen.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Rock_On.jpg" alt="Rock_On.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Lava_Nose.jpg" alt="Lava_Nose.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Green_Stones.jpg" alt="Green_Stones.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/I_See_Gold.jpg" alt="I_See_Gold.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Blue_Shell.jpg" alt="Blue_Shell.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Stick_and_Tube.jpg" alt="Stick_and_Tube.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/Silver_Bulb.jpg" alt="Silver_Bulb.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0431.JPG" alt="IMG_0431.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0430.JPG" alt="IMG_0430.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/bending_Clay.jpg" alt="bending_Clay.jpg" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0433.JPG" alt="IMG_0433.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/silver bulb.JPG" alt="silver bulb.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0436.JPG" alt="IMG_0436.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0434.JPG" alt="IMG_0434.JPG" onclick="showModal(this.src)">
+      
+        <img src="images/processed/colored stones/IMG_0435.JPG" alt="IMG_0435.JPG" onclick="showModal(this.src)">
+      
+    </div>
+  
+
+  <div class="modal" onclick="hideModal()" id="modal">
+    <img src="" alt="preview" id="modal-img">
+  </div>
+
+  <script>
+    function showModal(src) {
+      document.getElementById("modal-img").src = src;
+      document.getElementById("modal").classList.add("active");
+    }
+    function hideModal() {
+      document.getElementById("modal").classList.remove("active");
+    }
+  </script>
+
+  </div>
+
+  <h2 class="contact">
+    <span>Get in touch </span>
+    <span class="emoji pointer"></span>
+    <span>
+      <a
+        href="mailto:ian.sheridan@gmail.com"
+        target="_blank"
+        class="highlight-link"
+        >ian.sheridan@gmail.com</a
+      >
+    </span>
+  </h2>
 </div>
+
+  <div class="section other-projects">
+  <h1 class="title">Other Projects</h1>
+  <p class="project">
+    
+      <h2 class="name">
+        <a href="https://superrare.com/iansheridan" target="_blank" class="arrow-link">NFTs</a>
+      </h2>
+      <p>My art made digitally for your eyes to see. This is me, sharing the Heart of me.</p>
+      <div class="used">
+        
+        <span class="item">Procreate</span>
+        
+        <span class="item">Appple Pen</span>
+        
+      </div>
+    
+  </p>
+</div>
+
+  <div class="section experience">
+  <h2 class="title">Experience</h2>
+  <div class="jobs">
+    
+    <div class="job">
+      <div class="time-place">
+        <div class="company">
+          <a href="https://iansheridan.art/" target="_blank">Ian Sheridan Consulting LLC</a>
+        </div>
+        <div class="time">Jan 2016 - Present</div>
+      </div>
+      <div class="position">founder</div>
+    </div>
+    
+    <div class="job">
+      <div class="time-place">
+        <div class="company">
+          <a href="https://iansheridan.art/" target="_blank">Self-employed</a>
+        </div>
+        <div class="time">Jan 2020 - Present</div>
+      </div>
+      <div class="position">Artist</div>
+    </div>
+    
+  </div>
+</div>
+
+  <div class="section footer">
+  <div class="copyright">
+    <div class="top">
+      <span>Designed &amp; Developed by</span>
+    </div>
+    <div class="bottom"
+      <span>Ian Sheridan</span>
+      <img class="emoji" src="/img/emojis/rockon.png" alt="emoji">
+      <span>2024</span>
+    </div>
+  </div>
+  <div class="links">
+    
+  </div>
+</div>
+
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' type="text/javascript" charset="utf-8"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="/assets/js/main.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
