@@ -7,6 +7,6 @@ gem 'jekyll-paginate'
 gem 'pygments.rb'
 
 
-group: :jekyll_plugins do
+group :jekyll_plugins do
   gem 'jekyll-postcss'
 end
