@@ -28,6 +28,7 @@ exclude:
   - yarn.lock
   - "*.config.js"
   - raw_images
+  - generate_portfolio.rb
 keep_files:
   - CNAME
   - .git
