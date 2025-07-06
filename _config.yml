@@ -17,25 +17,24 @@ collections:
     output: true
 sass:
   sass_dir: _scss
-exclude:
-  #  - Gemfile
-  #  - Gemfile.lock
-  - "*.gemspec"
-  - README.md
-  - node_modules
-  - build
-  - packag*.json
-  - yarn.lock
-  - "*.config.js"
-  - raw_images
-  - generate_portfolio.rb
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - "*.gemspec"
+#   - README.md
+#   - node_modules
+#   - build
+#   - packag*.json
+#   - yarn.lock
+#   - "*.config.js"
+#   - raw_images
 keep_files:
   - CNAME
   - .git
   - .gitignore
 plugins:
   - github-pages
-  - jekyll-postcss
-postcss:
-  cache: false
-
+#  - jekyll-postcss
+# postcss:
+#   cache: false
+ 
