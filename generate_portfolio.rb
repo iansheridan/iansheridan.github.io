@@ -51,7 +51,7 @@ template = <<-HTML
     <h2 id="<%= html_id(category) %>"><%= category.capitalize %></h2>
     <div class="gallery">
       <% images.each do |img| %>
-        <img src="<%= File.join(PROCESSED_DIR, img) %>" alt="<%= File.basename(img) %>" onclick="showModal(this.src)">
+        <img src="<%= File.join(PROCESSED_DIR, img).strip %>" alt="<%= File.basename(img) %>" onclick="showModal(this.src)">
       <% end %>
     </div>
   <% end %>
