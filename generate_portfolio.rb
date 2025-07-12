@@ -5,7 +5,7 @@ require 'fileutils'
 # Config
 RAW_DIR = 'raw_images'
 PROCESSED_DIR = 'images/processed'
-OUTPUT_FILE = 'portfolio.html'
+OUTPUT_FILE = '_includes/portfolio_items.html'
 MAX_WIDTH = 1020
 IMAGE_EXTS = /\.(png|jpe?g|webp|gif)$/i
 
@@ -47,42 +47,6 @@ end
 
 # HTML Template
 template = <<-HTML
-  <style>
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5remgenerate_portfolio;
-    }
-    .gallery img {
-      width: 100%;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: transform 0.2s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.02);
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 10;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal img {
-      max-width: #{MAX_WIDTH}px;
-      max-height: 90vh;
-      border-radius: 8px;
-    }
-    .modal.active {
-      display: flex;
-    }
-  </style>
-  <h1>My Portfolio</h1>
-
   <% categories.each do |category, images| %>
     <h2 id="<%= html_id(category) %>"><%= category.capitalize %></h2>
     <div class="gallery">
@@ -91,20 +55,6 @@ template = <<-HTML
       <% end %>
     </div>
   <% end %>
-
-  <div class="modal" onclick="hideModal()" id="modal">
-    <img src="" alt="preview" id="modal-img">
-  </div>
-
-  <script>
-    function showModal(src) {
-      document.getElementById("modal-img").src = src;
-      document.getElementById("modal").classList.add("active");
-    }
-    function hideModal() {
-      document.getElementById("modal").classList.remove("active");
-    }
-  </script>
 HTML
 
 # Render HTML

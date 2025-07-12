@@ -3,9 +3,10 @@
 
 // main scss file
 
-// color pallete
+// global variables
 //
 
+// colors
 $seasalt: #f8f9faff;
 $antiflash-white: #e9ecefff;
 $platinum: #dee2e6ff;
@@ -16,13 +17,18 @@ $outer-space: #495057ff;
 $onyx: #343a40ff;
 $eerie-black: #212529ff;
 
+// fonts
+// $fontName "VT323";
+// $fontName: "Blaka";
+$fontName: "Special Elite";
+
 // main body
 //
 
 html body {
   background-color: $eerie-black  !important ;
   color: $french-gray !important ;
-  font-family: "VT323", monospace;
+  font-family: $fontName, monospace;
   font-weight: 400;
   font-style: normal;
 }
@@ -41,7 +47,7 @@ a {
   border-bottom: 0px;
 }
 .intro .hello {
-  font-size: 3em;
+  font-size: 6em;
 }
 .intro .tagline {
   font-size: 2em;
