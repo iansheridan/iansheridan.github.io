@@ -30,7 +30,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - raw_images
+#  - raw_images
   - generate_portfolio.rb
 
 sass:
