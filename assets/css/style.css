@@ -1,0 +1,4 @@
+body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; }
+nav { text-align: center; padding: 1em; }
+img { max-width: 100%; height: auto; display: block; margin: 1em auto; }  /* Responsive images for on-the-fly presentations */
+@media (min-width: 768px) { .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1em; } }

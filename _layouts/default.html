@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>{{ site.title }}</title>
-<link rel="icon" type="image/png" href="{{site.logo}}" hreflang="en-us">
-<meta property="og:title" content="{{site.title}}" />
-<meta property="og:description" content="{{site.description}}" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="{{site.url}}" />
-<meta property="og:site_name" content="{{site.name}}" />
-<meta property="og:image" content="{{site.cover}}" />
-<meta property="og:image:width" content="1280" />
-<meta property="og:image:height" content="800" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:locale" content="en_US">
-<meta name="description" content="{{site.description}}">
-<meta name="keywords" content="design, development, web, iansheridan, {{ site.name }}, javascript, northeastern">
-<meta itemprop="name" content="{{site.title}}">
-<meta itemprop="description" content="{{site.description}}">
-<meta itemprop="image" content="{{site.cover}}">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:url" content="{{site.url}}">
-<meta name="twitter:site" content="@iansheridan">
-<meta name="twitter:creator" content="@iansheridan">
-<meta name="twitter:title" content="{{site.title}}">
-<meta name="twitter:description" content="{{site.description}}">
-<meta name="twitter:image:src" content="{{site.cover}}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:slnt@-3&family=Blaka&family=Pacifico&family=Rubik+Broken+Fax&family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css" hreflang="en-us">
-<link rel="font" type="stylesheet" href="https://fonts.google.com/share?selection.family=Bitcount+Grid+Double:slnt@-3|Blaka|Pacifico|Rubik+Broken+Fax|VT323" />
-</head>
-<body id="iansheridan_art">
-  {{ content }}
-  {% include scripts.html %}
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">  <!-- Add custom CSS later -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a> |
+        <a href="/about/">About</a> |
+        <a href="/gallery/">Gallery</a>
+      </nav>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      &copy; {{ site.time | date: '%Y' }} Ian Sheridan
+    </footer>
+  </body>
 </html>
