@@ -7,10 +7,10 @@
  *
  * Request sent (matches web-gallery/api/create-checkout.js):
  *   POST {endpoint}  Content-Type: application/json
- *   { "artworkId": "<piece page name>", "type": "print", "variantKey": "8x10" }
+ *   { "artworkId": "<piece page name>", "type": "print", "variantKey": "10x10" }
  * Response: { "checkoutUrl": "https://square.link/..." }
  *
- * No prices are sent: the server decides the price.
+ * No prices are sent: the server decides the price (and adds the flat shipping fee).
  */
 (function () {
   'use strict';

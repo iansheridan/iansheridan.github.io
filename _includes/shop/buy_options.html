@@ -4,7 +4,7 @@
 {%- endcomment -%}
 {%- assign product = site.data.products[site.data.shop.product_type] -%}
 <div class="buy-options" data-artwork-id="{{ include.artwork_id }}" data-product-type="{{ site.data.shop.product_type }}">
-  <p class="buy-what">{{ product.label | split: " (" | first }}</p>
+  <p class="buy-what">{{ product.label }}</p>
   <div class="buy-sizes">
     {%- for variant in product.variants %}
     <button type="button" class="buy-size" data-variant="{{ variant.key }}">
@@ -13,6 +13,10 @@
     </button>
     {%- endfor %}
   </div>
+  {%- assign shipping = site.data.products.shipping.flatFee | default: 0 -%}
+  {%- if shipping > 0 %}
+  <p class="buy-shipping">+ {% include shop/price.html cents=shipping %} shipping per order</p>
+  {%- endif %}
   <p class="buy-status" role="status" aria-live="polite"></p>
   <p class="buy-note">Secure checkout by Square. Shipping address is collected at checkout.</p>
 </div>

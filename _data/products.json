@@ -1,11 +1,16 @@
 {
+  "shipping": {
+    "name": "Shipping",
+    "flatFee": 756,
+    "note": "Flat shipping per order, in cents. Added to every Square checkout. Set to 0 to charge no shipping."
+  },
   "print": {
     "label": "Fine Art Print (giclée via Tribeca Printworks)",
     "variants": [
-      { "key": "8x10", "label": "8×10 inches", "price": 4500 },
-      { "key": "11x14", "label": "11×14 inches", "price": 6500 },
-      { "key": "16x20", "label": "16×20 inches", "price": 9500 },
-      { "key": "18x24", "label": "18×24 inches", "price": 12500 }
+      { "key": "10x10", "label": "10×10 inches", "price": 8900 },
+      { "key": "12x12", "label": "12×12 inches", "price": 14400 },
+      { "key": "16x16", "label": "16×16 inches", "price": 23300 },
+      { "key": "20x20", "label": "20×20 inches", "price": 37700 }
     ],
     "provider": "tribeca",
     "fulfillmentNote": "Artist will upload file to Tribeca Printworks studio and arrange shipping or pickup."

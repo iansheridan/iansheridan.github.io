@@ -54,8 +54,10 @@ To hide **every** Buy button at once, open `_data/shop.yml` and set `enabled: fa
 
 ## Prices
 
-Buyers choose a print size. The sizes and prices are in web-gallery's
-`config/products.json` — that is what Square actually charges.
+Buyers choose a square print size: 10×10 $89, 12×12 $144, 16×16 $233,
+20×20 $377, plus a flat $7.56 shipping per order. The sizes, prices and
+shipping are in web-gallery's `config/products.json` — that is what Square
+actually charges.
 `_data/products.json` here is a copy used only to show prices on the site.
 If you change prices, change them in web-gallery and copy the file here.
 
