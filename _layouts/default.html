@@ -7,7 +7,7 @@
 <title>{{ site.title }}</title>
 <link rel="icon" type="image/png" href="{{site.logo}}" hreflang="en-us">
 <meta property="og:title" content="{{site.title}}" />
-<meta property="og:description" content="{{site.description}}" />
+<meta property="og:description" content="{{ site.description | strip_html | normalize_whitespace | escape }}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{site.url}}" />
 <meta property="og:site_name" content="{{site.name}}" />
@@ -16,17 +16,17 @@
 <meta property="og:image:height" content="800" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:locale" content="en_US">
-<meta name="description" content="{{site.description}}">
+<meta name="description" content="{{ site.description | strip_html | normalize_whitespace | escape }}">
 <meta name="keywords" content="design, development, web, iansheridan, {{ site.name }}, javascript, northeastern">
 <meta itemprop="name" content="{{site.title}}">
-<meta itemprop="description" content="{{site.description}}">
+<meta itemprop="description" content="{{ site.description | strip_html | normalize_whitespace | escape }}">
 <meta itemprop="image" content="{{site.cover}}">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="{{site.url}}">
 <meta name="twitter:site" content="@iansheridan">
 <meta name="twitter:creator" content="@iansheridan">
 <meta name="twitter:title" content="{{site.title}}">
-<meta name="twitter:description" content="{{site.description}}">
+<meta name="twitter:description" content="{{ site.description | strip_html | normalize_whitespace | escape }}">
 <meta name="twitter:image:src" content="{{site.cover}}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,5 +37,6 @@
 <body id="iansheridan_art">
   {{ content }}
   {% include scripts.html %}
+  {% include shop/scripts.html %}
 </body>
 </html>

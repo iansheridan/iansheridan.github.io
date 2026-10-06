@@ -1,0 +1,18 @@
+{%- comment -%}
+  One big button per size. Clicking one goes straight to Square checkout.
+  include.artwork_id may be empty (the home-page dialog fills it in).
+{%- endcomment -%}
+{%- assign product = site.data.products[site.data.shop.product_type] -%}
+<div class="buy-options" data-artwork-id="{{ include.artwork_id }}" data-product-type="{{ site.data.shop.product_type }}">
+  <p class="buy-what">{{ product.label | split: " (" | first }}</p>
+  <div class="buy-sizes">
+    {%- for variant in product.variants %}
+    <button type="button" class="buy-size" data-variant="{{ variant.key }}">
+      <span class="buy-size-label">{{ variant.label }}</span>
+      <span class="buy-size-price">{% include shop/price.html cents=variant.price %}</span>
+    </button>
+    {%- endfor %}
+  </div>
+  <p class="buy-status" role="status" aria-live="polite"></p>
+  <p class="buy-note">Secure checkout by Square. Shipping address is collected at checkout.</p>
+</div>

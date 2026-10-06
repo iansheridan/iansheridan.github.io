@@ -19,6 +19,13 @@ github_username:  iansheridan
 plugins:
   - jekyll-feed
 
+# One page per piece of art, made from the files in _gallery/
+# (e.g. _gallery/bank_of_shadows.html -> /gallery/bank-of-shadows/)
+collections:
+  gallery:
+    output: true
+    permalink: /gallery/:name/
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/
@@ -31,7 +38,8 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
 #  - raw_images
-  - generate_portfolio.rb
+  - scripts/
+  - requirements.txt
 
 sass:
     sass_dir: _sass

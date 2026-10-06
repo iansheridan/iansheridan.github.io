@@ -1,0 +1,9 @@
+{%- if site.data.shop.enabled -%}
+<script>
+  window.SHOP_CONFIG = {
+    endpoint: {{ site.data.shop.checkout_endpoint | jsonify }},
+    email: {{ site.data.shop.contact_email | jsonify }}
+  };
+</script>
+<script src="{{ '/assets/js/shop.js' | relative_url }}" defer></script>
+{%- endif -%}

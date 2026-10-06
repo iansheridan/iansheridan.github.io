@@ -1,0 +1,4 @@
+{%- comment -%} Prints a price given in cents, e.g. 4500 -> $45, 4550 -> $45.50 {%- endcomment -%}
+{%- assign dollars = include.cents | divided_by: 100 -%}
+{%- assign cents = include.cents | modulo: 100 -%}
+${{ dollars }}{% if cents > 0 %}.{% if cents < 10 %}0{% endif %}{{ cents }}{% endif %}

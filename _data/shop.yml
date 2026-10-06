@@ -1,0 +1,20 @@
+# Shop settings for iansheridan.art
+#
+# Master switch. Set to false to hide every Buy button on the site
+# (and stop the checkout server from accepting orders from this site).
+enabled: true
+
+# The checkout server: Ian's web-gallery app on Vercel. It asks Square for a
+# secure payment page and sends the buyer there.
+checkout_endpoint: "https://web-gallery-blond.vercel.app/api/create-checkout"
+
+# What the Buy button sells. Must match a product type in _data/products.json
+# ("print" or "tshirt"). T-shirts are off until a real CustomCat SKU is set.
+product_type: print
+
+# Shown when checkout is not working, so buyers can still reach Ian.
+contact_email: ian.sheridan@gmail.com
+
+# _data/products.json is a COPY of web-gallery/config/products.json and is only
+# used to SHOW prices here. Square always charges the price in web-gallery's file,
+# so if you change prices, change them there and copy the file here.
