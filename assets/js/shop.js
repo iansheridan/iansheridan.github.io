@@ -1,13 +1,13 @@
 /*
  * shop.js - Buy buttons for iansheridan.art
  *
- * Flow: buyer clicks "Buy print" -> picks a size -> this script asks the
+ * Flow: buyer clicks "Buy" -> picks a type + size (one button) -> this script asks the
  * checkout server (web-gallery on Vercel) for a Square payment page -> the
  * browser goes to Square. After paying, Square sends the buyer to /shop/thanks/.
  *
  * Request sent (matches web-gallery/api/create-checkout.js):
  *   POST {endpoint}  Content-Type: application/json
- *   { "artworkId": "<piece page name>", "type": "print", "variantKey": "10x10" }
+ *   { "artworkId": "<piece page name>", "type": "print" | "canvas" | "matted", "variantKey": "10x10" }
  * Response: { "checkoutUrl": "https://square.link/..." }
  *
  * No prices are sent: the server decides the price (and adds the flat shipping fee).
@@ -42,11 +42,10 @@
     }
   }
 
-  function startCheckout(container, variantKey, button) {
+  function startCheckout(container, type, variantKey, button) {
     if (busy) return; // ignore double clicks
     var artworkId = container.getAttribute('data-artwork-id');
-    var type = container.getAttribute('data-product-type') || 'print';
-    if (!artworkId || !variantKey || !config.endpoint) {
+    if (!artworkId || !type || !variantKey || !config.endpoint) {
       showProblem(container);
       return;
     }
@@ -112,7 +111,7 @@
     var size = target.closest('.buy-size');
     if (size) {
       event.preventDefault();
-      startCheckout(size.closest('.buy-options'), size.getAttribute('data-variant'), size);
+      startCheckout(size.closest('.buy-options'), size.getAttribute('data-type'), size.getAttribute('data-variant'), size);
       return;
     }
 

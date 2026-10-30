@@ -1,4 +1,6 @@
-{%- comment -%} Prints a price given in cents, e.g. 8900 -> $89, 756 -> $7.56 {%- endcomment -%}
+{%- comment -%} Prints a price given in cents, e.g. 8800 -> $88, 756 -> $7.56, 149200 -> $1,492 {%- endcomment -%}
 {%- assign dollars = include.cents | divided_by: 100 -%}
 {%- assign cents = include.cents | modulo: 100 -%}
-${{ dollars }}{% if cents > 0 %}.{% if cents < 10 %}0{% endif %}{{ cents }}{% endif %}
+{%- assign thousands = dollars | divided_by: 1000 -%}
+{%- assign rest = dollars | modulo: 1000 -%}
+${% if thousands > 0 %}{{ thousands }},{% if rest < 100 %}0{% endif %}{% if rest < 10 %}0{% endif %}{{ rest }}{% else %}{{ dollars }}{% endif %}{% if cents > 0 %}.{% if cents < 10 %}0{% endif %}{{ cents }}{% endif %}

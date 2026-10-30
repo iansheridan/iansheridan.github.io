@@ -8,9 +8,12 @@ enabled: true
 # secure payment page and sends the buyer there.
 checkout_endpoint: "https://web-gallery-blond.vercel.app/api/create-checkout"
 
-# What the Buy button sells. Must match a product type in _data/products.json
-# ("print" or "tshirt"). T-shirts are off until a real CustomCat SKU is set.
-product_type: print
+# What the Buy button sells, in this order. Each must be a product type in
+# _data/products.json. T-shirts are off until a real CustomCat SKU is set.
+product_types:
+  - print
+  - canvas
+  - matted
 
 # Shown when checkout is not working, so buyers can still reach Ian.
 contact_email: ian.sheridan@gmail.com

@@ -6,14 +6,42 @@
   },
   "print": {
     "label": "Fine Art Print (giclée via Tribeca Printworks)",
+    "itemName": "Fine Art Giclée Print",
     "variants": [
-      { "key": "10x10", "label": "10×10 inches", "price": 8900 },
+      { "key": "10x10", "label": "10×10 inches", "price": 8800 },
       { "key": "12x12", "label": "12×12 inches", "price": 14400 },
       { "key": "16x16", "label": "16×16 inches", "price": 23300 },
-      { "key": "20x20", "label": "20×20 inches", "price": 37700 }
+      { "key": "20x20", "label": "20×20 inches", "price": 37700 },
+      { "key": "30x30", "label": "30×30 inches", "price": 61000 }
     ],
     "provider": "tribeca",
     "fulfillmentNote": "Artist will upload file to Tribeca Printworks studio and arrange shipping or pickup."
+  },
+  "canvas": {
+    "label": "Canvas",
+    "itemName": "Canvas",
+    "variants": [
+      { "key": "10x10", "label": "10×10 inches", "price": 17600 },
+      { "key": "12x12", "label": "12×12 inches", "price": 28500 },
+      { "key": "16x16", "label": "16×16 inches", "price": 46100 },
+      { "key": "20x20", "label": "20×20 inches", "price": 74600 },
+      { "key": "30x30", "label": "30×30 inches", "price": 120700 }
+    ],
+    "provider": "manual",
+    "fulfillmentNote": "Artist arranges production and shipping (fulfillment partner not set yet)."
+  },
+  "matted": {
+    "label": "Matted Print",
+    "itemName": "Matted Print",
+    "variants": [
+      { "key": "10x10", "label": "10×10 inches", "price": 35200 },
+      { "key": "12x12", "label": "12×12 inches", "price": 57000 },
+      { "key": "16x16", "label": "16×16 inches", "price": 92200 },
+      { "key": "20x20", "label": "20×20 inches", "price": 149200 },
+      { "key": "30x30", "label": "30×30 inches", "price": 241400 }
+    ],
+    "provider": "manual",
+    "fulfillmentNote": "Artist arranges production and shipping (fulfillment partner not set yet)."
   },
   "tshirt": {
     "label": "Premium T-Shirt (via CustomCat POD)",
@@ -24,7 +52,8 @@
       { "key": "XL", "label": "XL", "price": 3200 }
     ],
     "provider": "customcat",
-    "catalogSku": "GILDAN_5000_SOFTSTYLE", 
-    "fulfillmentNote": "Automatically submitted to CustomCat for printing & direct ship (white-label)."
+    "catalogSku": "GILDAN_5000_SOFTSTYLE",
+    "fulfillmentNote": "Automatically submitted to CustomCat for printing & direct ship (white-label).",
+    "itemName": "Premium T-Shirt"
   }
 }
