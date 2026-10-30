@@ -1,0 +1,8 @@
+{%- if site.data.shop.enabled -%}
+<dialog id="buy-dialog" class="buy-dialog" aria-labelledby="buy-dialog-title">
+  <button type="button" class="buy-close" data-buy-close aria-label="Close">&times;</button>
+  <h2 id="buy-dialog-title">Buy</h2>
+  <p class="buy-dialog-piece"></p>
+  {% include shop/buy_options.html artwork_id="" %}
+</dialog>
+{%- endif -%}

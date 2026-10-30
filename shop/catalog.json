@@ -1,0 +1,28 @@
+---
+layout: null
+permalink: /shop/catalog.json
+---
+{%- comment -%}
+  The list of pieces the checkout server (web-gallery) will accept from this site.
+  Only pieces with for_sale: true are listed; prices are NOT here on purpose -
+  the server takes them from web-gallery/config/products.json.
+{%- endcomment -%}
+{%- if site.data.shop.enabled -%}
+{%- assign pieces = site.gallery | where_exp: "p", "p.for_sale == true" | sort: "position" -%}
+{%- else -%}
+{%- assign pieces = "" | split: "" -%}
+{%- endif -%}
+{
+  "source": {{ site.url | jsonify }},
+  "artworks": [
+    {%- for p in pieces %}
+    {%- assign first_image = p.images | first %}
+    {
+      "id": {{ p.slug | jsonify }},
+      "title": {{ p.title | jsonify }},
+      "image": {{ first_image.url | absolute_url | jsonify }},
+      "url": {{ p.url | absolute_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}

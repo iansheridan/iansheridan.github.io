@@ -1,0 +1,26 @@
+{%- comment -%} One picture in the home-page gallery, with a Buy button if it is for sale. {%- endcomment -%}
+{%- assign piece = include.piece -%}
+{%- assign first_image = piece.images | first -%}
+{%- if site.data.shop.enabled and piece.for_sale -%}
+{%- assign lowest = 999999999 -%}
+{%- for type in site.data.shop.product_types -%}
+{%- assign type_lowest = site.data.products[type].variants | map: "price" | sort | first -%}
+{%- if type_lowest < lowest %}{% assign lowest = type_lowest %}{% endif -%}
+{%- endfor -%}
+<figure class="piece-card for-sale">
+  <img src="{{ first_image.url }}" alt="{{ piece.title | escape }}" loading="lazy" onclick="showModal(this.src)">
+  <figcaption>
+    <a class="piece-title" href="{{ piece.url }}">{{ piece.title }}</a>
+    <button type="button" class="buy-button" data-buy-open data-artwork-id="{{ piece.slug }}" data-title="{{ piece.title | escape }}">
+      Buy <span class="buy-from">from {% include shop/price.html cents=lowest %}</span>
+    </button>
+  </figcaption>
+</figure>
+{%- for image in piece.images offset: 1 %}
+<img src="{{ image.url }}" alt="{{ piece.title | escape }}" loading="lazy" onclick="showModal(this.src)">
+{%- endfor -%}
+{%- else -%}
+{%- for image in piece.images %}
+<img src="{{ image.url }}" alt="{{ piece.title | escape }}" loading="lazy" onclick="showModal(this.src)">
+{%- endfor -%}
+{%- endif -%}

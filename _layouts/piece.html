@@ -3,8 +3,23 @@ layout: default
 ---
 <div class="piece">
 
+  <p class="back-link"><a href="/">&larr; All artwork</a></p>
   <h2>{{ page.title }}</h2>
-  <p>{% for image in page.images %}<a class="anchor" href="/"><img src="{{ image['url'] }}" width="33%" alt="{{ page.title }}"></a>{% endfor %}</p>
-  <p class="meta">Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></p>
+  <div class="piece-images">{% for image in page.images %}<img src="{{ image['url'] }}" alt="{{ page.title | escape }}" onclick="showModal(this.src)">{% endfor %}</div>
 
+  {% if site.data.shop.enabled and page.for_sale %}
+  <div class="buy-box">
+    <h3>Buy this piece</h3>
+    {% include shop/buy_options.html artwork_id=page.slug %}
+  </div>
+  {% else %}
+  <p class="not-for-sale">Not for sale online yet. Interested? Email <a href="mailto:{{ site.data.shop.contact_email }}?subject={{ page.title | url_encode }}">{{ site.data.shop.contact_email }}</a>.</p>
+  {% endif %}
+
+  {% if page.date %}<p class="meta">Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></p>{% endif %}
+
+</div>
+
+<div class="modal" onclick="hideModal()" id="modal">
+  <img src="" alt="preview" id="modal-img">
 </div>
