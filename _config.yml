@@ -27,6 +27,7 @@ collections:
     permalink: /gallery/:name/
 
 exclude:
+  - raw_images
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
