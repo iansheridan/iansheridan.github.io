@@ -246,3 +246,25 @@ a {
 .back-link a {
   border-bottom: 0;
 }
+
+// "Buy this" button in the picture pop-up, pinned to the bottom of the screen
+.modal .modal-buy {
+  position: fixed;
+  left: 50%;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 11;
+  padding: 0.9em 2.4em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background: #1a7f37;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  min-height: 48px;
+}
+.modal .modal-buy:hover,
+.modal .modal-buy:focus-visible { background: #15692d; }
+.modal .modal-buy[hidden] { display: none; }

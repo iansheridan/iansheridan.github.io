@@ -91,6 +91,36 @@
     if (first) first.focus();
   }
 
+
+  // "Buy this" button inside the picture pop-up (#modal), pinned to the bottom of
+  // the screen. Shown only when the clicked picture is for sale (it carries
+  // data-artwork-id); it opens the same size/type chooser as the gallery Buy button.
+  var modal = document.getElementById('modal');
+  var modalBuy = null;
+  if (modal && dialog) {
+    modalBuy = document.createElement('button');
+    modalBuy.type = 'button';
+    modalBuy.className = 'modal-buy';
+    modalBuy.textContent = 'Buy this';
+    modalBuy.hidden = true;
+    modal.appendChild(modalBuy);
+    modalBuy.addEventListener('click', function (event) {
+      event.stopPropagation(); // don't let the pop-up close itself
+      openDialog(modalBuy.getAttribute('data-artwork-id'), modalBuy.getAttribute('data-title'));
+    });
+    // Runs before the picture's own onclick, which opens the pop-up.
+    document.addEventListener('click', function (event) {
+      var img = event.target && event.target.closest && event.target.closest('img[onclick]');
+      if (!img || modal.contains(img)) return;
+      var id = img.getAttribute('data-artwork-id');
+      modalBuy.hidden = !id;
+      if (id) {
+        modalBuy.setAttribute('data-artwork-id', id);
+        modalBuy.setAttribute('data-title', img.getAttribute('data-title') || '');
+      }
+    }, true);
+  }
+
   function closeDialog() {
     if (!dialog || busy) return;
     if (typeof dialog.close === 'function') dialog.close();

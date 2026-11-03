@@ -8,7 +8,7 @@
 {%- if type_lowest < lowest %}{% assign lowest = type_lowest %}{% endif -%}
 {%- endfor -%}
 <figure class="piece-card for-sale">
-  <img src="{{ first_image.url }}" alt="{{ piece.title | escape }}" loading="lazy" onclick="showModal(this.src)">
+  <img src="{{ first_image.url }}" alt="{{ piece.title | escape }}" loading="lazy" onclick="showModal(this.src)" data-artwork-id="{{ piece.slug }}" data-title="{{ piece.title | escape }}">
   <figcaption>
     <a class="piece-title" href="{{ piece.url }}">{{ piece.title }}</a>
     <button type="button" class="buy-button" data-buy-open data-artwork-id="{{ piece.slug }}" data-title="{{ piece.title | escape }}">
@@ -17,7 +17,7 @@
   </figcaption>
 </figure>
 {%- for image in piece.images offset: 1 %}
-<img src="{{ image.url }}" alt="{{ piece.title | escape }}" loading="lazy" onclick="showModal(this.src)">
+<img src="{{ image.url }}" alt="{{ piece.title | escape }}" loading="lazy" onclick="showModal(this.src)" data-artwork-id="{{ piece.slug }}" data-title="{{ piece.title | escape }}">
 {%- endfor -%}
 {%- else -%}
 {%- for image in piece.images %}
