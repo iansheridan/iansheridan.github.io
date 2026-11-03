@@ -24,3 +24,9 @@ contact_email: ian.sheridan@gmail.com
 # _data/products.json is a COPY of web-gallery/config/products.json and is only
 # used to SHOW prices here. Square always charges the price in web-gallery's file,
 # so if you change prices, change them there and copy the file here.
+
+# Short names shown in the Style drop-down and on the Buy button.
+style_labels:
+  print: Print
+  canvas: Canvas
+  matted: Matted
