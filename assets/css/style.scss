@@ -247,24 +247,60 @@ a {
   border-bottom: 0;
 }
 
-// "Buy this" button in the picture pop-up, pinned to the bottom of the screen
+// Shop: pop-up buy panel + drop-downs
+.modal-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 95vw;
+}
+.modal-inner img { max-width: min(90vw, 700px); }
+.modal-buy {
+  background: #fff;
+  color: #222;
+  border-radius: 8px;
+  padding: 1.25rem;
+  max-width: 340px;
+  cursor: default;
+}
+.modal-buy[hidden] { display: none; }
+.buy-selects { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.buy-field { display: flex; flex-direction: column; font-weight: bold; gap: .3rem; }
+.buy-field select { font-size: 1.1rem; padding: .5rem; min-width: 8rem; }
+.buy-go {
+  display: block; width: 100%;
+  font-size: 1.15rem; padding: .8rem 1rem;
+  background: #222; color: #fff; border: 0; border-radius: 6px; cursor: pointer;
+}
+.buy-go:hover, .buy-go:focus-visible { background: #000; }
+.buy-go:disabled { opacity: .6; cursor: wait; }
+
+// Pin the buy panel to the bottom of the screen inside the pop-up (shop PM request)
 .modal .modal-buy {
   position: fixed;
   left: 50%;
-  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%);
   z-index: 11;
-  padding: 0.9em 2.4em;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #fff;
-  background: #1a7f37;
-  border: 2px solid #fff;
-  border-radius: 999px;
+  width: min(92vw, 420px);
+  max-width: none;
+  box-sizing: border-box;
+  padding: 0.9rem 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  min-height: 48px;
 }
-.modal .modal-buy:hover,
-.modal .modal-buy:focus-visible { background: #15692d; }
-.modal .modal-buy[hidden] { display: none; }
+.modal .modal-buy .buy-dialog-piece { margin: 0 0 .5rem; font-weight: bold; }
+.modal .modal-buy .buy-selects { margin-bottom: .6rem; }
+.modal .modal-buy .buy-field { flex: 1; }
+.modal .modal-buy .buy-field select { min-width: 0; width: 100%; }
+.modal .modal-buy .buy-note, .modal .modal-buy .buy-shipping { margin: .4rem 0 0; font-size: .85rem; }
+// leave room above the panel so the picture is not hidden behind it
+.modal-inner img { max-height: calc(100vh - 340px); }
+// centre the picture in the space above the pinned panel
+.modal.active:has(.modal-buy:not([hidden])) { box-sizing: border-box; padding-bottom: 310px; }
+.modal .modal-buy .buy-dialog-piece,
+.modal .modal-buy .buy-shipping,
+.modal .modal-buy .buy-note,
+.modal .modal-buy .buy-status { color: #222; }
+.modal .modal-buy .buy-status:empty { display: none; }

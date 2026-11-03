@@ -1,7 +1,7 @@
 /*
  * shop.js - Buy buttons for iansheridan.art
  *
- * Flow: buyer clicks "Buy" -> picks a type + size (one button) -> this script asks the
+ * Flow: buyer clicks "Buy" -> picks Style + Size in two drop-downs, then one Buy button -> this script asks the
  * checkout server (web-gallery on Vercel) for a Square payment page -> the
  * browser goes to Square. After paying, Square sends the buyer to /shop/thanks/.
  *
@@ -16,7 +16,6 @@
   'use strict';
 
   var config = window.SHOP_CONFIG || {};
-  var dialog = document.getElementById('buy-dialog');
   var busy = false;
 
   function setStatus(container, message) {
@@ -25,8 +24,22 @@
   }
 
   function setButtonsDisabled(container, disabled) {
-    var buttons = container.querySelectorAll('.buy-size');
-    for (var i = 0; i < buttons.length; i++) buttons[i].disabled = disabled;
+    var els = container.querySelectorAll('.buy-go, select');
+    for (var i = 0; i < els.length; i++) els[i].disabled = disabled;
+  }
+
+  function prices(container) {
+    try { return JSON.parse(container.getAttribute('data-prices')); } catch (e) { return {}; }
+  }
+
+  // Refresh the Buy button text, e.g. "Buy Canvas 10×10 — $176"
+  function updateChoice(container) {
+    var p = prices(container);
+    var type = container.querySelector('.buy-style').value;
+    var size = container.querySelector('.buy-size-select').value;
+    var t = p[type], v = t && t.sizes[size];
+    var label = container.querySelector('.buy-choice');
+    if (label && v) label.textContent = t.label + ' ' + v.label + ' \u2014 ' + v.price;
   }
 
   function showProblem(container) {
@@ -78,78 +91,36 @@
       });
   }
 
-  function openDialog(artworkId, title) {
-    if (!dialog) return;
-    var options = dialog.querySelector('.buy-options');
-    options.setAttribute('data-artwork-id', artworkId);
+  var modalBuy = document.getElementById('modal-buy');
+  // Called by showModal(src, img) on the home page: show the buy panel only for for-sale pieces.
+  window.shopShowFor = function (img) {
+    if (!modalBuy) return;
+    var id = img && img.getAttribute && img.getAttribute('data-artwork-id');
+    if (!id) { modalBuy.hidden = true; return; }
+    var options = modalBuy.querySelector('.buy-options');
+    options.setAttribute('data-artwork-id', id);
     setStatus(options, '');
-    var piece = dialog.querySelector('.buy-dialog-piece');
-    if (piece) piece.textContent = title || '';
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open', '');
-    var first = dialog.querySelector('.buy-size');
-    if (first) first.focus();
-  }
+    var piece = modalBuy.querySelector('.buy-dialog-piece');
+    if (piece) piece.textContent = img.getAttribute('data-title') || '';
+    modalBuy.hidden = false;
+  };
 
-
-  // "Buy this" button inside the picture pop-up (#modal), pinned to the bottom of
-  // the screen. Shown only when the clicked picture is for sale (it carries
-  // data-artwork-id); it opens the same size/type chooser as the gallery Buy button.
-  var modal = document.getElementById('modal');
-  var modalBuy = null;
-  if (modal && dialog) {
-    modalBuy = document.createElement('button');
-    modalBuy.type = 'button';
-    modalBuy.className = 'modal-buy';
-    modalBuy.textContent = 'Buy this';
-    modalBuy.hidden = true;
-    modal.appendChild(modalBuy);
-    modalBuy.addEventListener('click', function (event) {
-      event.stopPropagation(); // don't let the pop-up close itself
-      openDialog(modalBuy.getAttribute('data-artwork-id'), modalBuy.getAttribute('data-title'));
-    });
-    // Runs before the picture's own onclick, which opens the pop-up.
-    document.addEventListener('click', function (event) {
-      var img = event.target && event.target.closest && event.target.closest('img[onclick]');
-      if (!img || modal.contains(img)) return;
-      var id = img.getAttribute('data-artwork-id');
-      modalBuy.hidden = !id;
-      if (id) {
-        modalBuy.setAttribute('data-artwork-id', id);
-        modalBuy.setAttribute('data-title', img.getAttribute('data-title') || '');
-      }
-    }, true);
-  }
-
-  function closeDialog() {
-    if (!dialog || busy) return;
-    if (typeof dialog.close === 'function') dialog.close();
-    else dialog.removeAttribute('open');
-  }
+  document.addEventListener('change', function (event) {
+    var c = event.target.closest && event.target.closest('.buy-options');
+    if (c) updateChoice(c);
+  });
 
   document.addEventListener('click', function (event) {
     var target = event.target;
     if (!target || !target.closest) return;
 
-    var opener = target.closest('[data-buy-open]');
-    if (opener) {
+    var go = target.closest('.buy-go');
+    if (go) {
       event.preventDefault();
-      openDialog(opener.getAttribute('data-artwork-id'), opener.getAttribute('data-title'));
-      return;
+      var c = go.closest('.buy-options');
+      startCheckout(c, c.querySelector('.buy-style').value, c.querySelector('.buy-size-select').value, go);
     }
-
-    var size = target.closest('.buy-size');
-    if (size) {
-      event.preventDefault();
-      startCheckout(size.closest('.buy-options'), size.getAttribute('data-type'), size.getAttribute('data-variant'), size);
-      return;
-    }
-
-    if (target.closest('[data-buy-close]') || target === dialog) {
-      // a click on the dark area around the dialog also closes it
-      closeDialog();
-    }
-  });
+  }, true); // capture: the pop-up panel stops clicks from bubbling (so it doesn't close the pop-up)
 
   // Coming back with the browser Back button from Square: re-enable buttons.
   window.addEventListener('pageshow', function () {
@@ -157,6 +128,7 @@
     var lists = document.querySelectorAll('.buy-options');
     for (var i = 0; i < lists.length; i++) {
       setButtonsDisabled(lists[i], false);
+      updateChoice(lists[i]);
       setStatus(lists[i], '');
     }
   });

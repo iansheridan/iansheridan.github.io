@@ -5,7 +5,7 @@ layout: default
 
   <p class="back-link"><a href="/">&larr; All artwork</a></p>
   <h2>{{ page.title }}</h2>
-  <div class="piece-images">{% for image in page.images %}<img src="{{ image['url'] }}" alt="{{ page.title | escape }}" onclick="showModal(this.src)"{% if site.data.shop.enabled and page.for_sale %} data-artwork-id="{{ page.slug }}" data-title="{{ page.title | escape }}"{% endif %}>{% endfor %}</div>
+  <div class="piece-images">{% for image in page.images %}<img src="{{ image['url'] }}" alt="{{ page.title | escape }}" onclick="showModal(this.src)">{% endfor %}</div>
 
   {% if site.data.shop.enabled and page.for_sale %}
   <div class="buy-box">
