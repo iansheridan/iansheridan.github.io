@@ -246,3 +246,33 @@ a {
 .back-link a {
   border-bottom: 0;
 }
+
+// Shop: pop-up buy panel + drop-downs
+.modal-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 95vw;
+}
+.modal-inner img { max-width: min(90vw, 700px); }
+.modal-buy {
+  background: #fff;
+  color: #222;
+  border-radius: 8px;
+  padding: 1.25rem;
+  max-width: 340px;
+  cursor: default;
+}
+.modal-buy[hidden] { display: none; }
+.buy-selects { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.buy-field { display: flex; flex-direction: column; font-weight: bold; gap: .3rem; }
+.buy-field select { font-size: 1.1rem; padding: .5rem; min-width: 8rem; }
+.buy-go {
+  display: block; width: 100%;
+  font-size: 1.15rem; padding: .8rem 1rem;
+  background: #222; color: #fff; border: 0; border-radius: 6px; cursor: pointer;
+}
+.buy-go:hover, .buy-go:focus-visible { background: #000; }
+.buy-go:disabled { opacity: .6; cursor: wait; }

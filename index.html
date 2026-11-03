@@ -61,12 +61,16 @@
 {% include portfolio_items.html %}
 
   <div class="modal" onclick="hideModal()" id="modal">
-    <img src="" alt="preview" id="modal-img">
+    <div class="modal-inner">
+      <img src="" alt="preview" id="modal-img">
+      {% include shop/dialog.html %}
+    </div>
   </div>
 
   <script>
-    function showModal(src) {
+    function showModal(src, el) {
       document.getElementById("modal-img").src = src;
+      if (window.shopShowFor) window.shopShowFor(el);
       document.getElementById("modal").classList.add("active");
     }
     function hideModal() {
@@ -154,7 +158,6 @@
 
 </div>
 
-  {% include shop/dialog.html %}
   {% include shop/scripts.html %}
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' type="text/javascript" charset="utf-8"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
