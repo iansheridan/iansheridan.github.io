@@ -304,3 +304,24 @@ a {
 .modal .modal-buy .buy-note,
 .modal .modal-buy .buy-status { color: #222; }
 .modal .modal-buy .buy-status:empty { display: none; }
+
+// Ian's photo to the right of "Hello!" and the description
+.intro::after { content: ""; display: table; clear: both; }
+.intro .intro-photo {
+  float: right;
+  width: 260px;
+  max-width: 32%;
+  height: auto;
+  margin: 0.5em 0 1em 2em;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 700px) {
+  .intro .intro-photo {
+    float: none;
+    display: block;
+    width: 160px;
+    max-width: 50%;
+    margin: 0 auto 1em;
+  }
+}
