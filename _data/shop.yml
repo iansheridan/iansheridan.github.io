@@ -8,9 +8,8 @@ enabled: true
 # secure payment page and sends the buyer there.
 checkout_endpoint: "https://web-gallery-blond.vercel.app/api/create-checkout"
 
-# What the Buy button sells, in this order. Each must be a product type in
-# _data/products.json. If there is only one type, the pop-up skips the type
-# chooser and shows just the size choice.
+# What the Buy buttons sell, in this order. Each must be a product type in
+# _data/products.json. Each size is its own Buy button that goes straight to checkout.
 product_types:
   - print
 
@@ -28,6 +27,6 @@ contact_email: ian.sheridan@gmail.com
 # abs(width - height) / max(width, height) <= 0.02. Measurements are in
 # _data/image_sizes.json (update that file if images change).
 
-# Short names shown in the Style drop-down (when more than one type) and on the Buy button.
+# Short names included on the Buy button when more than one type is offered.
 style_labels:
   print: Print

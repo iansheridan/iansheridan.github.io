@@ -55,7 +55,8 @@ To hide **every** Buy button at once, open `_data/shop.yml` and set `enabled: fa
 ## Prices
 
 The shop sells only Fine Art Prints, in 10×10 and 20×20, plus a flat $7.56
-shipping per order. The Buy button appears only on square images (within 2%).
+shipping per order. Square pictures get two Buy buttons that go straight to
+checkout. The buttons appear only on square images (within 2%).
 
 | Size | Fine Art Print |
 | --- | --- |

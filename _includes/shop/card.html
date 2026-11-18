@@ -1,4 +1,4 @@
-{%- comment -%} Pictures in the home-page gallery. No buy buttons here: clicking a for-sale square picture opens the pop-up with Size and Buy. Non-square pictures have no Buy option. {%- endcomment -%}
+{%- comment -%} Pictures in the home-page gallery. No buy buttons here: clicking a for-sale square picture opens the pop-up with two Buy buttons, one per size. Non-square pictures have no Buy option. {%- endcomment -%}
 {%- assign piece = include.piece -%}
 {%- for image in piece.images %}
 {%- assign dims = site.data.image_sizes[image.url] -%}

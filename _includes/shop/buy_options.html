@@ -1,40 +1,20 @@
 {%- comment -%}
-  Size drop-down (and a Style drop-down only if more than one product type)
-  drives ONE Buy button that names the item and price, e.g. "Buy 10×10 — $88".
-  Clicking goes to Square checkout for exactly that style + size.
+  One Buy button per size, e.g. "Buy 10×10 — $88" and "Buy 20×20 — $377".
+  Each button goes straight to Square checkout for that style + size.
+  If more than one product type is offered, the type name is included on the button.
   include.artwork_id may be empty (the home pop-up fills it in).
 {%- endcomment -%}
 {%- assign first_type = site.data.shop.product_types | first -%}
-{%- assign first_product = site.data.products[first_type] -%}
-{%- assign first_variant = first_product.variants | first -%}
 {%- assign type_count = site.data.shop.product_types | size -%}
-<div class="buy-options" data-artwork-id="{{ include.artwork_id }}" data-type="{{ first_type }}" data-prices='{
-  {%- for type in site.data.shop.product_types -%}
-  {%- assign product = site.data.products[type] -%}
-  "{{ type }}":{"label":{{ site.data.shop.style_labels[type] | default: product.label | jsonify }},"sizes":{
-  {%- for variant in product.variants -%}"{{ variant.key }}":{"price":"{% include shop/price.html cents=variant.price %}","label":"{{ variant.label | remove: " inches" }}"}{% unless forloop.last %},{% endunless %}{%- endfor -%}
-  }}{% unless forloop.last %},{% endunless %}
-  {%- endfor -%}}'>
-  <div class="buy-selects">
-    {%- if type_count > 1 %}
-    <label class="buy-field">Style
-      <select class="buy-style">
-        {%- for type in site.data.shop.product_types %}
-        {%- assign product = site.data.products[type] %}
-        <option value="{{ type }}">{{ site.data.shop.style_labels[type] | default: product.label }}</option>
-        {%- endfor %}
-      </select>
-    </label>
-    {%- endif %}
-    <label class="buy-field">Size
-      <select class="buy-size-select">
-        {%- for variant in first_product.variants %}
-        <option value="{{ variant.key }}">{{ variant.label | remove: " inches" }}&Prime;</option>
-        {%- endfor %}
-      </select>
-    </label>
+<div class="buy-options" data-artwork-id="{{ include.artwork_id }}" data-type="{{ first_type }}">
+  <div class="buy-buttons">
+    {%- for type in site.data.shop.product_types %}
+    {%- assign product = site.data.products[type] %}
+    {%- for variant in product.variants %}
+    <button type="button" class="buy-go" data-type="{{ type }}" data-variant="{{ variant.key }}">Buy {% if type_count > 1 %}{{ site.data.shop.style_labels[type] | default: product.label }} {% endif %}{{ variant.label | remove: " inches" }} — {% include shop/price.html cents=variant.price %}</button>
+    {%- endfor %}
+    {%- endfor %}
   </div>
-  <button type="button" class="buy-go">Buy <span class="buy-choice">{% if type_count > 1 %}{{ site.data.shop.style_labels[first_type] | default: first_product.label }} {% endif %}{{ first_variant.label | remove: " inches" }} — {% include shop/price.html cents=first_variant.price %}</span></button>
   {%- assign shipping = site.data.products.shipping.flatFee | default: 0 -%}
   {%- if shipping > 0 %}
   <p class="buy-shipping">+ {% include shop/price.html cents=shipping %} shipping per order</p>

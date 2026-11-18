@@ -1,10 +1,10 @@
 /*
  * shop.js - Buy buttons for iansheridan.art
  *
- * Flow: buyer clicks "Buy" -> picks Size (and Style, only if more than one
- * product type is offered), then one Buy button -> this script asks the
- * checkout server (web-gallery on Vercel) for a Square payment page -> the
- * browser goes to Square. After paying, Square sends the buyer to /shop/thanks/.
+ * Flow: buyer clicks a Buy button for a size (e.g. "Buy 10×10 — $88") ->
+ * this script asks the checkout server (web-gallery on Vercel) for a Square
+ * payment page -> the browser goes to Square. After paying, Square sends the
+ * buyer to /shop/thanks/.
  *
  * Request sent (matches web-gallery/api/create-checkout.js):
  *   POST {endpoint}  Content-Type: application/json
@@ -30,32 +30,8 @@
   }
 
   function setButtonsDisabled(container, disabled) {
-    var els = container.querySelectorAll('.buy-go, select');
+    var els = container.querySelectorAll('.buy-go');
     for (var i = 0; i < els.length; i++) els[i].disabled = disabled;
-  }
-
-  function prices(container) {
-    try { return JSON.parse(container.getAttribute('data-prices')); } catch (e) { return {}; }
-  }
-
-  function selectedType(container) {
-    var sel = container.querySelector('.buy-style');
-    if (sel) return sel.value;
-    return container.getAttribute('data-type') || 'print';
-  }
-
-  // Refresh the Buy button text, e.g. "Buy 10×10 — $88" (or "Buy Print 10×10 — $88" if a style chooser is shown)
-  function updateChoice(container) {
-    var p = prices(container);
-    var type = selectedType(container);
-    var sizeSel = container.querySelector('.buy-size-select');
-    var size = sizeSel && sizeSel.value;
-    var t = p[type], v = t && t.sizes[size];
-    var label = container.querySelector('.buy-choice');
-    var hasStyle = !!container.querySelector('.buy-style');
-    if (label && v) {
-      label.textContent = (hasStyle ? t.label + ' ' : '') + v.label + ' \u2014 ' + v.price;
-    }
   }
 
   // 2% tolerance; if the image has not loaded yet, trust the build-time data-artwork-id.
@@ -135,11 +111,6 @@
     }
   };
 
-  document.addEventListener('change', function (event) {
-    var c = event.target.closest && event.target.closest('.buy-options');
-    if (c) updateChoice(c);
-  });
-
   document.addEventListener('click', function (event) {
     var target = event.target;
     if (!target || !target.closest) return;
@@ -148,7 +119,7 @@
     if (go) {
       event.preventDefault();
       var c = go.closest('.buy-options');
-      startCheckout(c, selectedType(c), c.querySelector('.buy-size-select').value, go);
+      startCheckout(c, go.getAttribute('data-type') || (c && c.getAttribute('data-type')), go.getAttribute('data-variant'), go);
     }
   }, true); // capture: the pop-up panel stops clicks from bubbling (so it doesn't close the pop-up)
 
@@ -158,7 +129,6 @@
     var lists = document.querySelectorAll('.buy-options');
     for (var i = 0; i < lists.length; i++) {
       setButtonsDisabled(lists[i], false);
-      updateChoice(lists[i]);
       setStatus(lists[i], '');
     }
   });
