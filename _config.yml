@@ -12,6 +12,10 @@ twitter_username: iansheridan
 github_username:  iansheridan
 
 
+# Google Analytics 4 measurement ID for iansheridan.art
+google_analytics: G-XMWBZ31RSL
+
+
 # Build settings
 
 # theme: minima
