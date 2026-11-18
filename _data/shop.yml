@@ -9,11 +9,10 @@ enabled: true
 checkout_endpoint: "https://web-gallery-blond.vercel.app/api/create-checkout"
 
 # What the Buy button sells, in this order. Each must be a product type in
-# _data/products.json. T-shirts are off until a real CustomCat SKU is set.
+# _data/products.json. If there is only one type, the pop-up skips the type
+# chooser and shows just the size choice.
 product_types:
   - print
-  - canvas
-  - matted
 
 # Shown when checkout is not working, so buyers can still reach Ian.
 contact_email: ian.sheridan@gmail.com
@@ -24,9 +23,11 @@ contact_email: ian.sheridan@gmail.com
 # _data/products.json is a COPY of web-gallery/config/products.json and is only
 # used to SHOW prices here. Square always charges the price in web-gallery's file,
 # so if you change prices, change them there and copy the file here.
+#
+# Buy is shown only for for_sale pieces whose image is square, within 2%:
+# abs(width - height) / max(width, height) <= 0.02. Measurements are in
+# _data/image_sizes.json (update that file if images change).
 
-# Short names shown in the Style drop-down and on the Buy button.
+# Short names shown in the Style drop-down (when more than one type) and on the Buy button.
 style_labels:
   print: Print
-  canvas: Canvas
-  matted: Matted

@@ -4,7 +4,7 @@ permalink: /shop/catalog.json
 ---
 {%- comment -%}
   The list of pieces the checkout server (web-gallery) will accept from this site.
-  Only pieces with for_sale: true are listed; prices are NOT here on purpose -
+  Only square pieces with for_sale: true are listed; prices are NOT here on purpose -
   the server takes them from web-gallery/config/products.json.
 {%- endcomment -%}
 {%- if site.data.shop.enabled -%}
@@ -15,14 +15,20 @@ permalink: /shop/catalog.json
 {
   "source": {{ site.url | jsonify }},
   "artworks": [
+    {%- assign emitted = "" %}
     {%- for p in pieces %}
     {%- assign first_image = p.images | first %}
+    {%- assign dims = site.data.image_sizes[first_image.url] %}
+    {%- if dims.square %}
+    {%- if emitted != "" %},{% endif %}
+    {%- assign emitted = "yes" %}
     {
       "id": {{ p.slug | jsonify }},
       "title": {{ p.title | jsonify }},
       "image": {{ first_image.url | absolute_url | jsonify }},
       "url": {{ p.url | absolute_url | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
+    }
+    {%- endif %}
     {%- endfor %}
   ]
 }

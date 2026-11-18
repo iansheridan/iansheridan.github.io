@@ -54,16 +54,13 @@ To hide **every** Buy button at once, open `_data/shop.yml` and set `enabled: fa
 
 ## Prices
 
-Buyers pick one button: a type (Print, Canvas or Matted) and a square size,
-plus a flat $7.56 shipping per order:
+The shop sells only Fine Art Prints, in 10×10 and 20×20, plus a flat $7.56
+shipping per order. The Buy button appears only on square images (within 2%).
 
-| Size | Print | Canvas | Matted |
-| --- | --- | --- | --- |
-| 10×10 | $88 | $176 | $352 |
-| 12×12 | $144 | $285 | $570 |
-| 16×16 | $233 | $461 | $922 |
-| 20×20 | $377 | $746 | $1,492 |
-| 30×30 | $610 | $1,207 | $2,414 |
+| Size | Fine Art Print |
+| --- | --- |
+| 10×10 | $88 |
+| 20×20 | $377 |
 
 The types, sizes, prices and shipping are in web-gallery's
 `config/products.json` — that is what Square actually charges.

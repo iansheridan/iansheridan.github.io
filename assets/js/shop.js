@@ -1,20 +1,26 @@
 /*
  * shop.js - Buy buttons for iansheridan.art
  *
- * Flow: buyer clicks "Buy" -> picks Style + Size in two drop-downs, then one Buy button -> this script asks the
+ * Flow: buyer clicks "Buy" -> picks Size (and Style, only if more than one
+ * product type is offered), then one Buy button -> this script asks the
  * checkout server (web-gallery on Vercel) for a Square payment page -> the
  * browser goes to Square. After paying, Square sends the buyer to /shop/thanks/.
  *
  * Request sent (matches web-gallery/api/create-checkout.js):
  *   POST {endpoint}  Content-Type: application/json
- *   { "artworkId": "<piece page name>", "type": "print" | "canvas" | "matted", "variantKey": "10x10" }
+ *   { "artworkId": "<piece page name>", "type": "print", "variantKey": "10x10" }
  * Response: { "checkoutUrl": "https://square.link/..." }
  *
  * No prices are sent: the server decides the price (and adds the flat shipping fee).
+ *
+ * The Buy panel is shown only for square images (within 2%:
+ * abs(width - height) / max(width, height) <= 0.02), using dimensions stored
+ * at build time and a runtime check of naturalWidth/naturalHeight.
  */
 (function () {
   'use strict';
 
+  var SQUARE_TOLERANCE = 0.02;
   var config = window.SHOP_CONFIG || {};
   var busy = false;
 
@@ -32,14 +38,32 @@
     try { return JSON.parse(container.getAttribute('data-prices')); } catch (e) { return {}; }
   }
 
-  // Refresh the Buy button text, e.g. "Buy Canvas 10×10 — $176"
+  function selectedType(container) {
+    var sel = container.querySelector('.buy-style');
+    if (sel) return sel.value;
+    return container.getAttribute('data-type') || 'print';
+  }
+
+  // Refresh the Buy button text, e.g. "Buy 10×10 — $88" (or "Buy Print 10×10 — $88" if a style chooser is shown)
   function updateChoice(container) {
     var p = prices(container);
-    var type = container.querySelector('.buy-style').value;
-    var size = container.querySelector('.buy-size-select').value;
+    var type = selectedType(container);
+    var sizeSel = container.querySelector('.buy-size-select');
+    var size = sizeSel && sizeSel.value;
     var t = p[type], v = t && t.sizes[size];
     var label = container.querySelector('.buy-choice');
-    if (label && v) label.textContent = t.label + ' ' + v.label + ' \u2014 ' + v.price;
+    var hasStyle = !!container.querySelector('.buy-style');
+    if (label && v) {
+      label.textContent = (hasStyle ? t.label + ' ' : '') + v.label + ' \u2014 ' + v.price;
+    }
+  }
+
+  // 2% tolerance; if the image has not loaded yet, trust the build-time data-artwork-id.
+  function isVisuallySquare(img) {
+    if (!img) return false;
+    var w = img.naturalWidth, h = img.naturalHeight;
+    if (!w || !h) return true;
+    return Math.abs(w - h) / Math.max(w, h) <= SQUARE_TOLERANCE;
   }
 
   function showProblem(container) {
@@ -92,17 +116,23 @@
   }
 
   var modalBuy = document.getElementById('modal-buy');
-  // Called by showModal(src, img) on the home page: show the buy panel only for for-sale pieces.
+  // Called by showModal(src, img) on the home page: show the buy panel only for for-sale square pieces.
   window.shopShowFor = function (img) {
     if (!modalBuy) return;
     var id = img && img.getAttribute && img.getAttribute('data-artwork-id');
-    if (!id) { modalBuy.hidden = true; return; }
+    if (!id || !isVisuallySquare(img)) { modalBuy.hidden = true; return; }
     var options = modalBuy.querySelector('.buy-options');
     options.setAttribute('data-artwork-id', id);
     setStatus(options, '');
     var piece = modalBuy.querySelector('.buy-dialog-piece');
     if (piece) piece.textContent = img.getAttribute('data-title') || '';
     modalBuy.hidden = false;
+    if (img && !img.naturalWidth && !img.complete) {
+      img.addEventListener('load', function onLoad() {
+        img.removeEventListener('load', onLoad);
+        if (modalBuy && !modalBuy.hidden && !isVisuallySquare(img)) modalBuy.hidden = true;
+      });
+    }
   };
 
   document.addEventListener('change', function (event) {
@@ -118,7 +148,7 @@
     if (go) {
       event.preventDefault();
       var c = go.closest('.buy-options');
-      startCheckout(c, c.querySelector('.buy-style').value, c.querySelector('.buy-size-select').value, go);
+      startCheckout(c, selectedType(c), c.querySelector('.buy-size-select').value, go);
     }
   }, true); // capture: the pop-up panel stops clicks from bubbling (so it doesn't close the pop-up)
 

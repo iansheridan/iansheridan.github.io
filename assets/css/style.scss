@@ -296,9 +296,9 @@ a {
 .modal .modal-buy .buy-field select { min-width: 0; width: 100%; }
 .modal .modal-buy .buy-note, .modal .modal-buy .buy-shipping { margin: .4rem 0 0; font-size: .85rem; }
 // leave room above the panel so the picture is not hidden behind it
-.modal-inner img { max-height: calc(100vh - 340px); }
+.modal-inner img { max-height: calc(100vh - 280px); }
 // centre the picture in the space above the pinned panel
-.modal.active:has(.modal-buy:not([hidden])) { box-sizing: border-box; padding-bottom: 310px; }
+.modal.active:has(.modal-buy:not([hidden])) { box-sizing: border-box; padding-bottom: 250px; }
 .modal .modal-buy .buy-dialog-piece,
 .modal .modal-buy .buy-shipping,
 .modal .modal-buy .buy-note,

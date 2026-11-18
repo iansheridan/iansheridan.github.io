@@ -7,7 +7,9 @@ layout: default
   <h2>{{ page.title }}</h2>
   <div class="piece-images">{% for image in page.images %}<img src="{{ image['url'] }}" alt="{{ page.title | escape }}" onclick="showModal(this.src)">{% endfor %}</div>
 
-  {% if site.data.shop.enabled and page.for_sale %}
+  {%- assign first_image = page.images | first -%}
+  {%- assign dims = site.data.image_sizes[first_image.url] -%}
+  {% if site.data.shop.enabled and page.for_sale and dims.square %}
   <div class="buy-box">
     <h3>Buy this piece</h3>
     {% include shop/buy_options.html artwork_id=page.slug %}
