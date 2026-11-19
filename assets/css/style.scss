@@ -247,7 +247,7 @@ a {
   border-bottom: 0;
 }
 
-// Shop: pop-up buy panel + drop-downs
+// Shop: pop-up buy panel + size buttons
 .modal-inner {
   display: flex;
   flex-wrap: wrap;
@@ -266,9 +266,7 @@ a {
   cursor: default;
 }
 .modal-buy[hidden] { display: none; }
-.buy-selects { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
-.buy-field { display: flex; flex-direction: column; font-weight: bold; gap: .3rem; }
-.buy-field select { font-size: 1.1rem; padding: .5rem; min-width: 8rem; }
+.buy-buttons { display: flex; flex-direction: column; gap: .6rem; margin-bottom: .6rem; }
 .buy-go {
   display: block; width: 100%;
   font-size: 1.15rem; padding: .8rem 1rem;
@@ -291,14 +289,12 @@ a {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 .modal .modal-buy .buy-dialog-piece { margin: 0 0 .5rem; font-weight: bold; }
-.modal .modal-buy .buy-selects { margin-bottom: .6rem; }
-.modal .modal-buy .buy-field { flex: 1; }
-.modal .modal-buy .buy-field select { min-width: 0; width: 100%; }
+.modal .modal-buy .buy-buttons { margin-bottom: .6rem; }
 .modal .modal-buy .buy-note, .modal .modal-buy .buy-shipping { margin: .4rem 0 0; font-size: .85rem; }
 // leave room above the panel so the picture is not hidden behind it
-.modal-inner img { max-height: calc(100vh - 340px); }
+.modal-inner img { max-height: calc(100vh - 300px); }
 // centre the picture in the space above the pinned panel
-.modal.active:has(.modal-buy:not([hidden])) { box-sizing: border-box; padding-bottom: 310px; }
+.modal.active:has(.modal-buy:not([hidden])) { box-sizing: border-box; padding-bottom: 270px; }
 .modal .modal-buy .buy-dialog-piece,
 .modal .modal-buy .buy-shipping,
 .modal .modal-buy .buy-note,
