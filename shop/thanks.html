@@ -11,3 +11,55 @@ permalink: /shop/thanks/
      <a href="mailto:{{ site.data.shop.contact_email }}">{{ site.data.shop.contact_email }}</a>.</p>
   <p><a href="/">&larr; Back to the artwork</a></p>
 </div>
+
+{%- comment -%}
+  Google Analytics "purchase" event. Square sends the buyer here after paying, adding
+  orderId / transactionId / checkoutId to the address. Fires once per order (remembered in
+  this browser, and GA also ignores a repeat transaction_id). Prices come from this site's
+  own price list below, never from the address, so the address cannot change the value.
+{%- endcomment -%}
+<script>
+(function () {
+  try {
+    var PRICES = { {% for v in site.data.products.print.variants %}"{{ v.key }}": {{ v.price | divided_by: 100.0 }}{% unless forloop.last %}, {% endunless %}{% endfor %} };
+    var SHIPPING = {{ site.data.products.shipping.flatFee | default: 0 | divided_by: 100.0 }};
+    var q = window.location.search || '';
+    function get(name) {
+      var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(q);
+      return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')).split('?')[0] : '';
+    }
+    var txn = get('orderId') || get('transactionId') || get('checkoutId');
+    if (get('success') !== '1' || !txn || typeof window.gtag !== 'function') return;
+    txn = txn.replace(/[^A-Za-z0-9_\-]/g, '').slice(0, 64);
+    if (!txn) return;
+    var key = 'ga_purchase_' + txn;
+    try { if (window.localStorage.getItem(key)) return; } catch (e) {}
+    var art = get('art').replace(/[^A-Za-z0-9_\-]/g, '');
+    var variant = get('variant');
+    var price = Object.prototype.hasOwnProperty.call(PRICES, variant) ? PRICES[variant] : null;
+    if (price === null) return; // unknown size: do not guess a value
+
+    function send(title) {
+      try { window.localStorage.setItem(key, '1'); } catch (e) {}
+      window.gtag('event', 'purchase', {
+        transaction_id: txn,
+        currency: 'USD',
+        value: price,
+        shipping: SHIPPING,
+        items: [{ item_id: art, item_name: title || art, item_variant: variant, item_category: 'Fine Art Print', price: price, quantity: 1 }],
+        piece_name: title || art,
+        size: variant,
+        price: price
+      });
+    }
+    // Look up the piece's real name; if that is slow or fails, send with the id instead.
+    var done = false;
+    function once(t) { if (!done) { done = true; send(t); } }
+    setTimeout(function () { once(''); }, 1500);
+    fetch('/shop/catalog.json').then(function (r) { return r.json(); }).then(function (c) {
+      var hit = (c.artworks || []).filter(function (a) { return a.id === art; })[0];
+      once(hit ? hit.title : '');
+    }).catch(function () { once(''); });
+  } catch (e) { /* analytics must never break the page */ }
+})();
+</script>
