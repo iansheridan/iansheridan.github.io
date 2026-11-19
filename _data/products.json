@@ -8,8 +8,8 @@
     "label": "Fine Art Print (giclée via Tribeca Printworks)",
     "itemName": "Fine Art Giclée Print",
     "variants": [
-      { "key": "10x10", "label": "10×10 inches", "price": 8800 },
-      { "key": "20x20", "label": "20×20 inches", "price": 37700 }
+      { "key": "10x10", "label": "10×10 inches", "price": 10000 },
+      { "key": "20x20", "label": "20×20 inches", "price": 20000 }
     ],
     "provider": "tribeca",
     "fulfillmentNote": "Artist will upload file to Tribeca Printworks studio and arrange shipping or pickup."

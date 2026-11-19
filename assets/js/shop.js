@@ -1,7 +1,7 @@
 /*
  * shop.js - Buy buttons for iansheridan.art
  *
- * Flow: buyer clicks a Buy button for a size (e.g. "Buy 10×10 — $88") ->
+ * Flow: buyer clicks a Buy button for a size (e.g. "Buy 10×10 — $100") ->
  * this script asks the checkout server (web-gallery on Vercel) for a Square
  * payment page -> the browser goes to Square. After paying, Square sends the
  * buyer to /shop/thanks/.

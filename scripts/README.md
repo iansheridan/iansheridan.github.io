@@ -60,8 +60,8 @@ checkout. The buttons appear only on square images (within 2%).
 
 | Size | Fine Art Print |
 | --- | --- |
-| 10×10 | $88 |
-| 20×20 | $377 |
+| 10×10 | $100 |
+| 20×20 | $200 |
 
 The types, sizes, prices and shipping are in web-gallery's
 `config/products.json` — that is what Square actually charges.
