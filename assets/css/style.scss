@@ -90,6 +90,26 @@ a {
 .gallery img:hover {
   transform: scale(1.02);
 }
+
+// Home: Shop the work + collection group subheads
+.shop-heading {
+  font-size: 2em;
+  font-weight: 400;
+  margin: 1.5em 0 0.6em;
+  padding-top: 0.6em;
+  border-top: 2px dotted $outer-space;
+  border-bottom: 0;
+}
+.shop-group {
+  margin: 0;
+}
+.shop-group-title {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin: 1.6em 0 0.4em;
+  color: $antiflash-white;
+  border-bottom: 0;
+}
 .modal {
   display: none;
   position: fixed;
