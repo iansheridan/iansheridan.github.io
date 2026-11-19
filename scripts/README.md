@@ -63,6 +63,10 @@ checkout. The buttons appear only on square images (within 2%).
 | 10×10 | $100 |
 | 20×20 | $200 |
 
+Each size also has a short details line (paper, border, overall size) shown
+under the Buy button and on Square checkout. That text lives next to the
+price in `products.json`.
+
 The types, sizes, prices and shipping are in web-gallery's
 `config/products.json` — that is what Square actually charges.
 `_data/products.json` here is a copy used only to show prices on the site.
