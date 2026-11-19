@@ -351,3 +351,49 @@ a {
     margin: 0 auto 1em;
   }
 }
+
+// Crumb bar: sticky bottom bar on the home page (assets/js/crumb.js)
+body.has-crumb { padding-bottom: calc(44px + env(safe-area-inset-bottom, 0px)); }
+.crumb-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9;
+  box-sizing: border-box;
+  height: calc(44px + env(safe-area-inset-bottom, 0px));
+  padding: 0 10% env(safe-area-inset-bottom, 0px);
+  background: rgba(33, 37, 41, 0.92);
+  border-top: 1px dotted $outer-space;
+  font-family: $fontName, monospace;
+  font-size: 15px;
+  color: $french-gray-2;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease, visibility 0s linear 150ms;
+}
+.crumb-bar.is-shown {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 150ms ease, visibility 0s;
+}
+.crumb-inner {
+  height: 44px;
+  line-height: 44px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.crumb-inner.is-short .crumb-root { display: none; }
+.crumb-sep { color: $slate-gray; }
+.crumb-bar a {
+  color: inherit;
+  border-bottom: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+.crumb-bar a[hidden], .crumb-sep[hidden] { display: none; }
+.crumb-bar a:hover { text-decoration: underline; }
+.crumb-bar a:focus-visible { outline: 2px solid $french-gray-2; outline-offset: 2px; }
+.crumb-bar .crumb-coll { color: $antiflash-white; font-weight: 700; }
+@media (prefers-reduced-motion: reduce) {
+  .crumb-bar, .crumb-bar.is-shown { transition: none; }
+}
