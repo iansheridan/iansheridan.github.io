@@ -1,15 +1,78 @@
 {%- comment -%}
   Home-page gallery. Built from the pages in _gallery/ (one per piece), grouped
-  by series ("category") in "position" order. scripts/update_site.py adds new
-  pieces; set for_sale: true in a piece's page to show its Buy button.
+  by series ("category") in "position" order, under three section subheads.
+  scripts/update_site.py adds new pieces. Buy buttons stay in the pop-up only,
+  not on the gallery grid.
 {%- endcomment -%}
 {%- assign pieces = site.gallery | sort: "position" -%}
 {%- assign series = pieces | group_by: "category" -%}
-{%- for group in series %}
-<h2 id="{{ group.name | slugify }}">{{ group.name | capitalize }}</h2>
-<div class="gallery">
-  {%- for piece in group.items %}
-  {% include shop/card.html piece=piece %}
+
+{%- assign group_line = "Mountain Red lines|lines going every which way|Red symmetry|My hands" | split: "|" -%}
+{%- assign group_color = "Aqua Dirt|Floating rocks|colored stones|Fun with color" | split: "|" -%}
+{%- assign group_motion = "Animated|Flexibots|Z-ROOT" | split: "|" -%}
+{%- assign known = group_line | concat: group_color | concat: group_motion -%}
+
+<section class="shop-group" id="line-work">
+  <h3 class="shop-group-title">Line work</h3>
+  {%- for cat in group_line %}
+  {%- assign items = pieces | where: "category", cat -%}
+  {%- if items.size > 0 %}
+  <h2 id="{{ cat | slugify }}">{{ cat | capitalize }}</h2>
+  <div class="gallery">
+    {%- for piece in items %}
+    {% include shop/card.html piece=piece %}
+    {%- endfor %}
+  </div>
+  {%- endif %}
   {%- endfor %}
-</div>
+</section>
+
+<section class="shop-group" id="color-and-stone">
+  <h3 class="shop-group-title">Color and stone</h3>
+  {%- for cat in group_color %}
+  {%- assign items = pieces | where: "category", cat -%}
+  {%- if items.size > 0 %}
+  <h2 id="{{ cat | slugify }}">{{ cat | capitalize }}</h2>
+  <div class="gallery">
+    {%- for piece in items %}
+    {% include shop/card.html piece=piece %}
+    {%- endfor %}
+  </div>
+  {%- endif %}
+  {%- endfor %}
+</section>
+
+<section class="shop-group" id="characters-and-motion">
+  <h3 class="shop-group-title">Characters and motion</h3>
+  {%- for cat in group_motion %}
+  {%- assign items = pieces | where: "category", cat -%}
+  {%- if items.size > 0 %}
+  <h2 id="{{ cat | slugify }}">{{ cat | capitalize }}</h2>
+  <div class="gallery">
+    {%- for piece in items %}
+    {% include shop/card.html piece=piece %}
+    {%- endfor %}
+  </div>
+  {%- endif %}
+  {%- endfor %}
+</section>
+
+{%- assign leftover_count = 0 -%}
+{%- for group in series -%}
+{%- unless known contains group.name -%}
+{%- assign leftover_count = leftover_count | plus: 1 -%}
+{%- if leftover_count == 1 %}
+<section class="shop-group" id="other-collections">
+  <h3 class="shop-group-title">Other collections</h3>
+{%- endif %}
+  <h2 id="{{ group.name | slugify }}">{{ group.name | capitalize }}</h2>
+  <div class="gallery">
+    {%- for piece in group.items %}
+    {% include shop/card.html piece=piece %}
+    {%- endfor %}
+  </div>
+{%- endunless -%}
 {%- endfor %}
+{%- if leftover_count > 0 %}
+</section>
+{%- endif %}

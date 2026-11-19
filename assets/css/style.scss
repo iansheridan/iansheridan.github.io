@@ -90,6 +90,36 @@ a {
 .gallery img:hover {
   transform: scale(1.02);
 }
+
+// Home: Shop the work + collection group subheads
+// Three type levels: section heading, group subheads, then collection titles.
+.shop-heading {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 1.5em 0 0.6em;
+  padding-top: 0.6em;
+  border-top: 2px dotted $outer-space;
+  border-bottom: 0;
+}
+.shop-group {
+  margin: 0;
+}
+.shop-group + .shop-group {
+  margin-top: 3.5em;
+}
+.shop-group-title {
+  font-size: 1.65em;
+  font-weight: 700;
+  margin: 0.8em 0 0.45em;
+  color: $antiflash-white;
+  border-bottom: 0;
+}
+.shop-group h2 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 1.4em 0 0.5em;
+  border-bottom: 0;
+}
 .modal {
   display: none;
   position: fixed;
@@ -320,4 +350,74 @@ a {
     max-width: 50%;
     margin: 0 auto 1em;
   }
+}
+
+// Crumb bar: sticky bottom bar on the home page (assets/js/crumb.js)
+body.has-crumb { padding-bottom: calc(44px + env(safe-area-inset-bottom, 0px)); }
+.crumb-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9;
+  box-sizing: border-box;
+  height: calc(44px + env(safe-area-inset-bottom, 0px));
+  padding: 0 10% env(safe-area-inset-bottom, 0px);
+  background: rgba(33, 37, 41, 0.92);
+  border-top: 1px dotted $outer-space;
+  font-family: $fontName, monospace;
+  font-size: 15px;
+  color: $french-gray-2;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease, visibility 0s linear 150ms;
+}
+.crumb-bar.is-shown {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 150ms ease, visibility 0s;
+}
+.crumb-inner {
+  height: 44px;
+  line-height: 44px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.crumb-inner.is-short .crumb-root { display: none; }
+.crumb-sep { color: $slate-gray; }
+.crumb-bar a {
+  color: inherit;
+  border-bottom: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+.crumb-bar a[hidden], .crumb-sep[hidden] { display: none; }
+.crumb-bar a:hover { text-decoration: underline; }
+.crumb-bar a:focus-visible { outline: 2px solid $french-gray-2; outline-offset: 2px; }
+.crumb-bar .crumb-coll { color: $antiflash-white; font-weight: 700; }
+@media (min-width: 701px) {
+  body.has-crumb { padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px)); }
+  .crumb-bar {
+    height: calc(48px + env(safe-area-inset-bottom, 0px));
+    font-size: 16px;
+    color: rgba(206, 212, 218, 0.75); // body text color ($french-gray) at 75%
+  }
+  .crumb-inner { height: 48px; line-height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .crumb-bar, .crumb-bar.is-shown { transition: none; }
+}
+
+// Intro photo: on wide screens, line the photo's top up with the top of the
+// first paragraph (not "Hello!"). Phones keep the stacked layout above.
+@media (min-width: 701px) {
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 2em;
+    align-items: start;
+  }
+  .intro::after { display: none; }
+  .intro .hello { grid-column: 1 / -1; grid-row: 1; }
+  .intro .tagline { grid-column: 1; grid-row: 2; }
+  .intro .intro-photo { float: none; grid-column: 2; grid-row: 2; margin: 0; max-width: 26vw; }
 }
