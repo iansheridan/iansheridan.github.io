@@ -55,6 +55,27 @@
     }
   }
 
+  // Google Analytics: tell GA a buyer is starting checkout. Never blocks or breaks checkout:
+  // if GA is blocked or fails, this quietly does nothing. Google's script sends any waiting
+  // events when the page unloads, so the hit still goes out as the buyer moves to Square.
+  function trackBeginCheckout(container, artworkId, variantKey, button) {
+    try {
+      if (typeof window.gtag !== 'function') return;
+      var wrap = container.parentNode;
+      var titleEl = (wrap && wrap.querySelector('.buy-dialog-piece')) || document.querySelector('.piece h2');
+      var name = (titleEl && titleEl.textContent || '').trim() || artworkId;
+      var price = Number(button && button.getAttribute('data-price')) || 0;
+      window.gtag('event', 'begin_checkout', {
+        currency: 'USD',
+        value: price,
+        items: [{ item_id: artworkId, item_name: name, item_variant: variantKey, item_category: 'Fine Art Print', price: price, quantity: 1 }],
+        piece_name: name,
+        size: variantKey,
+        price: price
+      });
+    } catch (e) { /* analytics must never break checkout */ }
+  }
+
   function startCheckout(container, type, variantKey, button) {
     if (busy) return; // ignore double clicks
     var artworkId = container.getAttribute('data-artwork-id');
@@ -80,6 +101,7 @@
         });
       })
       .then(function (data) {
+        trackBeginCheckout(container, artworkId, variantKey, button);
         window.location.assign(data.checkoutUrl);
       })
       .catch(function (err) {
