@@ -1,6 +1,7 @@
 {%- comment -%}
   One Buy button per size, e.g. "Buy 10×10 — $100" and "Buy 20×20 — $200".
   Each button goes straight to Square checkout for that style + size.
+  A short print-details line from products.json appears under each button.
   If more than one product type is offered, the type name is included on the button.
   include.artwork_id may be empty (the home pop-up fills it in).
 {%- endcomment -%}
@@ -11,7 +12,12 @@
     {%- for type in site.data.shop.product_types %}
     {%- assign product = site.data.products[type] %}
     {%- for variant in product.variants %}
-    <button type="button" class="buy-go" data-type="{{ type }}" data-variant="{{ variant.key }}">Buy {% if type_count > 1 %}{{ site.data.shop.style_labels[type] | default: product.label }} {% endif %}{{ variant.label | remove: " inches" }} — {% include shop/price.html cents=variant.price %}</button>
+    <div class="buy-choice">
+      <button type="button" class="buy-go" data-type="{{ type }}" data-variant="{{ variant.key }}">Buy {% if type_count > 1 %}{{ site.data.shop.style_labels[type] | default: product.label }} {% endif %}{{ variant.label | remove: " inches" }} — {% include shop/price.html cents=variant.price %}</button>
+      {%- if variant.details %}
+      <p class="buy-details">{{ variant.details }}</p>
+      {%- endif %}
+    </div>
     {%- endfor %}
     {%- endfor %}
   </div>

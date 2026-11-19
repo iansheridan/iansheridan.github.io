@@ -8,8 +8,8 @@
     "label": "Fine Art Print (giclée via Tribeca Printworks)",
     "itemName": "Fine Art Giclée Print",
     "variants": [
-      { "key": "10x10", "label": "10×10 inches", "price": 10000 },
-      { "key": "20x20", "label": "20×20 inches", "price": 20000 }
+      { "key": "10x10", "label": "10×10 inches", "price": 10000, "details": "10×10 image, 11×11 overall · Hahnemühle Photo Rag Bright · 0.5″ white border, straight-cut · unframed" },
+      { "key": "20x20", "label": "20×20 inches", "price": 20000, "details": "20×20 image, 21×21 overall · Hahnemühle Photo Rag Bright · 0.5″ white border, straight-cut · unframed" }
     ],
     "provider": "tribeca",
     "fulfillmentNote": "Artist will upload file to Tribeca Printworks studio and arrange shipping or pickup."
