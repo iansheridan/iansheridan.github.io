@@ -342,7 +342,7 @@ a {
   border-radius: 18px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
 }
-@media (max-width: 700px) {
+@media (max-width: 1199px) {
   .intro .intro-photo {
     float: none;
     display: block;
@@ -408,8 +408,9 @@ body.has-crumb { padding-bottom: calc(44px + env(safe-area-inset-bottom, 0px)); 
 }
 
 // Intro photo: on wide screens, line the photo's top up with the top of the
-// first paragraph (not "Hello!"). Phones keep the stacked layout above.
-@media (min-width: 701px) {
+// first paragraph (not "Hello!"). Below 1200px the side column gets too narrow
+// (about 35 characters a line or fewer), so the photo stacks above "Hello!" as on phones.
+@media (min-width: 1200px) {
   .intro {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
