@@ -355,22 +355,31 @@ a {
 // Crumb bar: sticky bottom bar on the home page (assets/js/crumb.js)
 body.has-crumb { padding-bottom: calc(44px + env(safe-area-inset-bottom, 0px)); }
 .crumb-bar {
+  // The fixed element itself has no background, opacity or transition: iOS Safari is
+  // unreliable at keeping an element that is animated (opacity/visibility) pinned to the bottom
+  // while its toolbar moves. The fade happens on the .crumb-fade child instead.
   position: fixed;
   left: 0; right: 0; bottom: 0;
   z-index: 9;
   box-sizing: border-box;
   height: calc(44px + env(safe-area-inset-bottom, 0px));
-  padding: 0 10% env(safe-area-inset-bottom, 0px);
-  background: rgba(33, 37, 41, 0.92);
-  border-top: 1px dotted $outer-space;
   font-family: $fontName, monospace;
   font-size: 15px;
   color: $french-gray-2;
+  pointer-events: none;
+}
+.crumb-fade {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0 10% env(safe-area-inset-bottom, 0px);
+  background: rgba(33, 37, 41, 0.92);
+  border-top: 1px dotted $outer-space;
   opacity: 0;
   visibility: hidden;
   transition: opacity 150ms ease, visibility 0s linear 150ms;
 }
-.crumb-bar.is-shown {
+.crumb-bar.is-shown { pointer-events: auto; }
+.crumb-bar.is-shown .crumb-fade {
   opacity: 1;
   visibility: visible;
   transition: opacity 150ms ease, visibility 0s;
@@ -404,7 +413,7 @@ body.has-crumb { padding-bottom: calc(44px + env(safe-area-inset-bottom, 0px)); 
   .crumb-inner { height: 48px; line-height: 48px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .crumb-bar, .crumb-bar.is-shown { transition: none; }
+  .crumb-fade, .crumb-bar.is-shown .crumb-fade { transition: none; }
 }
 
 // Intro photo: on wide screens, line the photo's top up with the top of the
