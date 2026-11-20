@@ -101,5 +101,18 @@
   if (modal && 'MutationObserver' in window) {
     new MutationObserver(schedule).observe(modal, { attributes: true, attributeFilter: ['class'] });
   }
+  // iOS Safari ignores user-scalable=no. After a pinch or double-tap zoom, a fixed bar stays
+  // at the bottom of the page view instead of the screen. While zoomed, pin it to the visible bottom.
+  var vv = window.visualViewport;
+  function pin() {
+    var z = vv.scale;
+    bar.style.transform = z > 1.01
+      ? 'translate(' + vv.offsetLeft + 'px,' + (vv.offsetTop + vv.height - window.innerHeight) + 'px) scale(' + (1 / z) + ')'
+      : '';
+  }
+  if (vv) {
+    vv.addEventListener('resize', pin);
+    vv.addEventListener('scroll', pin);
+  }
   update();
 })();
