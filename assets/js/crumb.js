@@ -103,12 +103,17 @@
   }
   // iOS Safari ignores user-scalable=no. After a pinch or double-tap zoom, a fixed bar stays
   // at the bottom of the page view instead of the screen. While zoomed, pin it to the visible bottom.
-  var vv = window.visualViewport;
+  var vv = window.visualViewport, pinned = false;
   function pin() {
-    var z = vv.scale;
-    bar.style.transform = z > 1.01
-      ? 'translate(' + vv.offsetLeft + 'px,' + (vv.offsetTop + vv.height - window.innerHeight) + 'px) scale(' + (1 / z) + ')'
-      : '';
+    // Does nothing (no style writes) unless the page is zoomed, or was and just stopped being.
+    if (vv.scale > 1.01) {
+      bar.style.transform = 'translate(' + vv.offsetLeft + 'px,' + (vv.offsetTop + vv.height - window.innerHeight) +
+        'px) scale(' + (1 / vv.scale) + ')';
+      pinned = true;
+    } else if (pinned) {
+      bar.style.transform = '';
+      pinned = false;
+    }
   }
   if (vv) {
     vv.addEventListener('resize', pin);
