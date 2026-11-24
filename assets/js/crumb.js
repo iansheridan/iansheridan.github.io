@@ -12,12 +12,12 @@
   bar.className = 'crumb-bar';
   bar.setAttribute('aria-label', 'Where you are in Shop the work');
   bar.innerHTML =
-    '<div class="crumb-inner">' +
+    '<div class="crumb-fade"><div class="crumb-inner">' +
       '<span class="crumb-root">Shop the work<span class="crumb-sep"> › </span></span>' +
       '<a href="#shop-the-work" class="crumb-group"></a>' +
       '<span class="crumb-sep crumb-sep-2"> › </span>' +
       '<a href="#shop-the-work" class="crumb-coll"></a>' +
-    '</div>';
+    '</div></div>';
   document.body.appendChild(bar);
   document.body.classList.add('has-crumb');
 
@@ -97,7 +97,12 @@
   }
   // Backup for fast flings past small headings.
   window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', function () { fit(); schedule(); });
+  // iOS fires resize (height only) over and over while the Safari toolbar collapses; only a width change can change the fit.
+  var lastW = window.innerWidth;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth !== lastW) { lastW = window.innerWidth; fit(); }
+    schedule();
+  });
   if (modal && 'MutationObserver' in window) {
     new MutationObserver(schedule).observe(modal, { attributes: true, attributeFilter: ['class'] });
   }
